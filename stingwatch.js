@@ -1,23 +1,21 @@
+var refreshPeriod = 10 * 1000 // ms
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
-  });
-
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
+  Template.telephonyEntries.helpers({
+    entries: {
+      return TelephonyEntries.find()
     }
   });
 }
 
-if (Meteor.isServer) {
+if (Meteor.isCordova) {
   Meteor.startup(function () {
-    // code to run on server at startup
+    Meteor.setTimeout(function () {
+      var cid = telephony.getCid()
+
+      TelephonyEntries.insert({
+        cid: cid
+      })
+    }, refreshPeriod);
   });
 }

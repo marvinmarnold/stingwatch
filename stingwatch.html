@@ -1,14 +1,21 @@
 <head>
-  <title>stingwatch</title>
+  <title>StingWatch</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>Welcome to StingWatch!</h1>
 
-  {{> hello}}
+  {{> telephonyEntries}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="telephonyEntries">
+  {{#each entries}}
+    {{> telephonyEntry}}
+  {{/each}}
+</template>
+
+<template name="telephonyEntry">
+  <p>
+    Your CID is {{cid}}
+  </p>
 </template>
