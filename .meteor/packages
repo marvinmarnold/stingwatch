@@ -18,6 +18,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 autopublish             # Publish all data to the clients (for prototyping)
 insecure                # Allow all DB writes from clients (for prototyping)
-reactjs:react
 aldeed:simple-schema
 aldeed:collection2
+react
