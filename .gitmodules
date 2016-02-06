@@ -1,0 +1,3 @@
+[submodule "packages/bootstrap"]
+	path = packages/bootstrap
+	url = git@github.com:marvinmarnold/bootstrap.git
