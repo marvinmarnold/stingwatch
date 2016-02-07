@@ -1,20 +1,19 @@
-Intro1 = React.createClass({
+EndingSlide = React.createClass({
   propTypes: {
-    orientation: React.PropTypes.string.isRequired
+    orientation: React.PropTypes.string.isRequired,
   },
 
   // https://github.com/hammerjs/hammer.js/wiki/Getting-Started
   swipe(event) {
     var dir = event.direction
 
-    if(dir === 2) {
-      Session.set(INTRO_SCREEN_NUM, 2)
-    } else if (dir === 4) {
+    if (dir === 4) {
+      Session.set(INTRO_SLIDE_NUM, NUM_INTRO_SLIDES-1)
     }
   },
 
   copy() {
-    return "Police have been listening to our calls and reading our text messages with little oversight and even less public scrutiny."
+    return "By using StingWatch, you will be helping to fight back increased surveillance by contributing data with the ultimate goal of avoiding the surveillance state."
   },
 
   textDiv() {
@@ -22,18 +21,19 @@ Intro1 = React.createClass({
 
       <div className='container'>
         <div className="intro-text text-xs-center p-t-3 p-x-1">
-          <h1>{this.copy()}</h1>
+          <h2>{this.copy()}</h2>
         </div>
       </div>
     )
   },
+
 
   render() {
     if((this.props.orientation === ORIENTATIONS.RIGHT) || (this.props.orientation === ORIENTATIONS.LEFT)) {
 
       return (
         <Hammer onSwipe={this.swipe}>
-          <div className='intro-1-landscape'>{this.textDiv()}</div>
+          <div className='intro-ending-landscape v-middle'>{this.textDiv()}</div>
         </Hammer>
       )
 
@@ -42,7 +42,7 @@ Intro1 = React.createClass({
 
       return (
         <Hammer onSwipe={this.swipe}>
-          <div className='intro-1-portrait'>{this.textDiv()}</div>
+          <div className='intro-ending-portrait v-middle'>{this.textDiv()}</div>
         </Hammer>
       )
 

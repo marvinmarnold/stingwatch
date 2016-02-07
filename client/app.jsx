@@ -26,29 +26,11 @@ App = React.createClass({
 
   showLoading() {
     return (
-      <div>Loading…</div>
+      <Loading/>
     )
   },
 
   render() {
-
     return this.data.ready ? this.props.content : this.showLoading();
-
-    // return (
-    //   <div className="container">
-    //     <header>
-    //       <h1>Telephony Data Log</h1>
-    //     </header>
-    //
-    //     <ul>
-    //       {this.renderTelephonyEntries()}
-    //     </ul>
-    //   </div>
-    // );
-    // renderTelephonyEntries() {
-    //   return this.data.telephonyEntries.map((telephonyEntry) => {
-    //     return <TelephonyEntry key={telephonyEntry._id} telephonyEntry={telephonyEntry} />;
-    //   });
-    // },
   }
 });
