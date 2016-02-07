@@ -3,6 +3,8 @@ App = React.createClass({
 
   getMeteorData() {
     Meteor.call('app-states/init')
+    Session.setDefault(ORIENTATIONS.ORIENTATION, ORIENTATIONS.UNKNOWN);
+
     var data = {
       ready: false
     };
@@ -10,6 +12,7 @@ App = React.createClass({
     var handles = [
       Meteor.subscribe('telephony-entries'),
       Meteor.subscribe('app-state'),
+      Meteor.subscribe('dev-tools')
     ];
 
     var handlesReady = _.every(handles, handle => {return handle.ready();})
@@ -19,6 +22,10 @@ App = React.createClass({
     }
 
     return data;
+  },
+
+  componentDidMount() {
+    // $(".player").fitVids();
   },
 
   showLoading() {

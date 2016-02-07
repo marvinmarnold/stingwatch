@@ -5,9 +5,9 @@ Meteor.methods({
       return true
 
     AppStates.insert({
-      introCompleted: false
+      introCompleted: false,
     })
-  }
+  },
 });
 
 Meteor.publish("app-state", function() {

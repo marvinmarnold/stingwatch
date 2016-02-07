@@ -4,5 +4,10 @@ FlowRouter.route("/", {
     ReactLayout.render(App, {
       content: <IntroPage />
     });
-  }
+  },
+  // triggersEnter: [function () {
+  //   Meteor.defer(function () {
+  //     $('body').addClass('full-screen');
+  //   });
+  // }],
 })

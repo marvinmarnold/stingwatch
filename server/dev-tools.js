@@ -1,9 +1,13 @@
 Meteor.methods({
   _log(text) {
-    _Logger.insert({text: text})
+    check(text, String)
+    
+    _Logger.insert({text: text, createdAt: new Date()})
   },
   _debug(text) {
-    _Debugger.update(_debugger()._id, {$set: {text: text}})
+    check(text, String)
+
+    _Debugger.update(_debugger()._id, {$set: {text: text, createdAt: new Date()}})
   }
 });
 
@@ -15,3 +19,11 @@ _debugger = function() {
   _Debugger.insert({})
   return _debugger()
 }
+
+Meteor.publish("dev-tools", function() {
+  var options = {sort: {createdAt: -1}, limit: 100}
+  return [
+    _Debugger.find({}, options),
+    _Logger.find({}, options)
+  ]
+});

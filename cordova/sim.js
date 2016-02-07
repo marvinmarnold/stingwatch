@@ -12,7 +12,7 @@ if(Meteor.isCordova) {
         mnc: result.mnc
       }
 
-      Meteor.call('_debug', telephonyEntry)
+      // Meteor.call('_debug', telephonyEntry)
 
       Meteor.call('telephony-entries/add', telephonyEntry)
     }, function(error) {
@@ -25,6 +25,8 @@ if(Meteor.isCordova) {
     refresh();
 
     Meteor.setTimeout(function () {
+      // Meteor.call('_log', 'log working')
+
       startRefreshing()
     }, refreshPeriod);
   }
