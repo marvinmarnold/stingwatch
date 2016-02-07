@@ -30,7 +30,7 @@ IntroSlide = React.createClass({
     if((this.props.orientation === ORIENTATIONS.RIGHT) || (this.props.orientation === ORIENTATIONS.LEFT)) {
 
       return (
-        <Hammer onSwipe={this.swipe}>
+        <Hammer onSwipe={this.swipe} onDoubleTap={this.swipe}>
           <div className='intro-welcome-landscape'>{this.textDiv()}</div>
         </Hammer>
       )
@@ -39,7 +39,7 @@ IntroSlide = React.createClass({
     } else {
 
       return (
-        <Hammer onSwipe={this.swipe}>
+        <Hammer onSwipe={this.swipe} onDoubleTap={this.swipe}>
           <div className='intro-welcome-portrait'>{this.textDiv()}</div>
         </Hammer>
       )

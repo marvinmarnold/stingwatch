@@ -43,7 +43,7 @@ MiddleSlide = React.createClass({
     if((this.props.orientation === ORIENTATIONS.RIGHT) || (this.props.orientation === ORIENTATIONS.LEFT)) {
 
       return (
-        <Hammer onSwipe={this.swipe}>
+        <Hammer onSwipe={this.swipe} onDoubleTap={this.swipe}>
           <div className={this.landscapeClassName()}>
             {this.textDiv()}
           </div>
@@ -54,7 +54,7 @@ MiddleSlide = React.createClass({
     } else {
 
       return (
-        <Hammer onSwipe={this.swipe}>
+        <Hammer onSwipe={this.swipe} onDoubleTap={this.swipe}>
           <div className={this.portraitClassName()}>
             {this.textDiv()}
           </div>
