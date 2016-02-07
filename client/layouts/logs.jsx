@@ -9,9 +9,12 @@ Logs = React.createClass({
 
   render() {
     return (
-      <ul>
-        {this.props.logs.map(this.showLog)}
-      </ul>
+      <div className='logs'>
+        {this.props.children}
+        <ul>
+          {this.props.logs.map(this.showLog)}
+        </ul>
+      </div>
     )
   }
 

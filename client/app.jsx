@@ -24,10 +24,6 @@ App = React.createClass({
     return data;
   },
 
-  componentDidMount() {
-    // $(".player").fitVids();
-  },
-
   showLoading() {
     return (
       <div>Loading…</div>

@@ -12,8 +12,14 @@ IntroPage = React.createClass({
 
   render() {
     if(this.data.page === 1) {
-      return <Intro1 orientation={this.data.orientation} />
-    } else {
+      return <Logs logs={this.data.logs}><Intro1 orientation={this.data.orientation} /></Logs>
+      // return <Intro1 orientation={this.data.orientation} />
+
+    } else if(this.data.page === 2) {
+      return <Logs logs={this.data.logs}><Intro2 orientation={this.data.orientation} /></Logs>
+      // return <Intro2 orientation={this.data.orientation} />
+
+    }else {
       return <div>Unknown Page</div>
     }
   }

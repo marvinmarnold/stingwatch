@@ -14,6 +14,22 @@
   background-position: center center;
 }
 
+.intro-2-portrait {
+  height: 100%;
+  background-image: url("/imsi-catcher-portrait.jpg");
+  background-size:   cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.intro-2-landscape {
+  height: 100%;
+  background-image: url("/imsi-catcher-landscape.jpg");
+  background-size:   cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 .intro-text {
   color: #fff;
 }
