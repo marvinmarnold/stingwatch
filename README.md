@@ -38,6 +38,12 @@ Once things are working with standard mobile hardware, we will create adapters t
 For example, RTL-SDR is a cheap (~$20) radio dongle that can be used to pick up GSM traffic and act as an IMSI-catcer.
 Because Meteor runs off Node.js, we will be able to easily install it on most architectures.
 
-### Development Notes
+### Usage
+Deploy to your android, using a local server
+````
 meteor run android-device -p 4000
+````
+Deploy to your android, using remote server
+````
 meteor run android-device --mobile-server http://stingwatch.meteor.com
+```
