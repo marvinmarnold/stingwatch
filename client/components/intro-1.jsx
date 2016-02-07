@@ -3,12 +3,15 @@ Intro1 = React.createClass({
     orientation: React.PropTypes.string.isRequired
   },
 
-  swipe() {
-    Meteor.call('_log', "left")
+  // https://github.com/hammerjs/hammer.js/wiki/Getting-Started
+  swipe(event) {
+    var dir = event.direction
 
-    Session.set(INTRO_SCREEN_NUM, 2)
+    if(dir === 2) {
+      Session.set(INTRO_SCREEN_NUM, 2)
+    } else if (dir === 4) {
+    }
   },
-
 
   copy() {
     return "Police have been listening to our calls and reading our text messages with little oversight and even less public scrutiny."
@@ -29,8 +32,8 @@ Intro1 = React.createClass({
     if((this.props.orientation === ORIENTATIONS.RIGHT) || (this.props.orientation === ORIENTATIONS.LEFT)) {
 
       return (
-        <Hammer onSwipe={this.handleSwipe}>
-          <div className='intro-1-landscape' id='intro-1'>{this.textDiv()}</div>
+        <Hammer onSwipe={this.swipe}>
+          <div className='intro-1-landscape'>{this.textDiv()}</div>
         </Hammer>
       )
 
@@ -39,10 +42,9 @@ Intro1 = React.createClass({
 
       return (
         <Hammer onSwipe={this.swipe}>
-          <div className='intro-1-portrait' id='intro1'>{this.textDiv()}</div>
+          <div className='intro-1-portrait'>{this.textDiv()}</div>
         </Hammer>
       )
-
 
     }
   }

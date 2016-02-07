@@ -17,14 +17,33 @@ Intro2 = React.createClass({
     )
   },
 
+  // https://github.com/hammerjs/hammer.js/wiki/Getting-Started
+  swipe(event) {
+    var dir = event.direction
+
+    if(dir === 2) {
+    } else if (dir === 4) {
+      Session.set(INTRO_SCREEN_NUM, 1)
+    }
+  },
+
   render() {
     if((this.props.orientation === ORIENTATIONS.RIGHT) || (this.props.orientation === ORIENTATIONS.LEFT)) {
 
-      return <div className='intro-2-landscape' id='intro-2'>{this.textDiv()}</div>
+      return (
+        <Hammer onSwipe={this.swipe}>
+          <div className='intro-2-landscape'>{this.textDiv()}</div>
+        </Hammer>
+      )
+
 
     } else {
 
-      return <div className='intro-2-portrait' id='intro-2'>{this.textDiv()}</div>
+      return (
+        <Hammer onSwipe={this.swipe}>
+          <div className='intro-2-portrait'>{this.textDiv()}</div>
+        </Hammer>
+      )
 
     }
   }
