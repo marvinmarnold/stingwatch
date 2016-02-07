@@ -1,8 +1,19 @@
-.intro-1 {
-  width: 100%;
+.intro-1-portrait {
   height: 100%;
-  background-image: url("/cone-cameras.jpg");
+  background-image: url("/cone-cameras-portrait.jpg");
   background-size:   cover;
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+.intro-1-landscape {
+  height: 100%;
+  background-image: url("/cone-cameras-landscape.jpg");
+  background-size:   cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.intro-text {
+  color: #fff;
 }
