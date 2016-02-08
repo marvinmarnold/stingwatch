@@ -22,7 +22,6 @@ Using Meteor and by exposing Telephony data over Cordova plugins, StingWatch can
 Like most existing IMSI-catcher applications, we will use a heuristic scoring algorithm to measure threat level.
 This will include:
 - changing LAC/MNC/MCC
-- IMSI/TMSI paging
 - Empty nearest neighbors list
 
 Although Meteor + Cordova may complicate things in the short term, they will ultimately help improve our reach as we can target more devices with less effort.
@@ -35,7 +34,8 @@ But once our data is made available, we hope this will encourage other IMSI-catc
 
 ## Phase 3: Hardware
 Once things are working with standard mobile hardware, we will create adapters to run the same code base on other integrated devices.
-For example, RTL-SDR is a cheap (~$20) radio dongle that can be used to pick up GSM traffic and act as an IMSI-catcer.
+For example, RTL-SDR is a cheap (~$20) radio dongle that can be used to monitor the base station you are conneted to or the base
+stations around you.
 Because Meteor runs off Node.js, we will be able to easily install it on most architectures.
 
 ### Usage
