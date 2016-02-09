@@ -6,8 +6,19 @@ Meteor.methods({
 
     AppStates.insert({
       introCompleted: false,
+      termsAccepted: false
     })
   },
+  'app-states/intro-completed': function() {
+    var as = AppStates.findOne()
+
+    return AppStates.update(as._id, {$set: {introCompleted: true}})
+  },
+  'app-states/accept-terms': function() {
+    var as = AppStates.findOne()
+
+    return AppStates.update(as._id, {$set: {termsAccepted: true}})
+  }
 });
 
 Meteor.publish("app-state", function() {

@@ -40,7 +40,7 @@ MiddleSlide = React.createClass({
   },
 
   render() {
-    if((this.props.orientation === ORIENTATIONS.RIGHT) || (this.props.orientation === ORIENTATIONS.LEFT)) {
+    if(isLandscape(this.props.orientation)) {
 
       return (
         <Hammer onSwipe={this.swipe} onDoubleTap={this.swipe}>

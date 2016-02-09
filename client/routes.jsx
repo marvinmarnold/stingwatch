@@ -6,3 +6,21 @@ FlowRouter.route("/", {
     });
   },
 })
+
+FlowRouter.route("/terms", {
+  name: "terms",
+  action: function(params) {
+    ReactLayout.render(App, {
+      content: <TermsPage />
+    });
+  },
+})
+
+FlowRouter.route("/watching", {
+  name: "watching",
+  action: function(params) {
+    ReactLayout.render(App, {
+      content: <WatchingPage />
+    });
+  },
+})

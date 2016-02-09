@@ -13,7 +13,7 @@ IntroPage = React.createClass({
 
   render() {
     if(this.data.page === 1) {
-      return <IntroSlide orientation={this.data.orientation} />
+      return <WelcomeSlide orientation={this.data.orientation} />
     } else if(this.data.page === NUM_INTRO_SLIDES) {
       return <EndingSlide orientation={this.data.orientation} />
     } else {
