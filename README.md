@@ -46,4 +46,20 @@ meteor run android-device -p 4000
 Deploy to your android, using remote server
 ````
 meteor run android-device --mobile-server http://stingwatch.meteor.com
-```
+````
+
+### Build notes
+http://stackoverflow.com/questions/28585818/meteor-android-apps-does-not-install-on-4-1-1/29562922#29562922
+android
+meteor build PATH_TO_BUILD --server https://stingwatch.meteor.com
+
+keytool -genkey -alias name -keyalg RSA -keysize 2048 -validity 10000 -keystore name.keystore
+
+jarsigner -keystore name.keystore -digestalg SHA1 -sigalg MD5withRSA -tsa http://timestamp.digicert.com  release-unsigned.apk name
+
+~/.meteor/android_bundle/android-sdk/build-tools/21.0.0/zipalign -f -v 4 unaligned.apk myapp.apk
+
+Version number
+http://stackoverflow.com/questions/32179872/meteor-js-android-version-code
+
+https://www.digitalocean.com/community/tutorials/java-keytool-essentials-working-with-java-keystores
