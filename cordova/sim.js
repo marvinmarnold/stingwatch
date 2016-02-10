@@ -9,7 +9,7 @@ if(Meteor.isCordova) {
     window.plugins.sim.getSimInfo(function(result) {
       var telephonyEntry = {
         mcc: result.mcc,
-        mnc: result.mnc
+        mnc: result.mnc,
       }
 
       // Meteor.call('_debug', telephonyEntry)
@@ -19,6 +19,19 @@ if(Meteor.isCordova) {
     //   _log("error")
     //   _debug(error)
     })
+    // telephony.getAll(function(result) {
+    //   var telephonyEntry = {
+    //     mcc: result,
+    //     mnc: result
+    //   }
+    //
+    //   // Meteor.call('_debug', telephonyEntry)
+    //
+    //   Meteor.call('telephony-entries/add', telephonyEntry)
+    // }, function(error) {
+    // //   _log("error")
+    // //   _debug(error)
+    // })
   }
 
   startRefreshing = function() {
