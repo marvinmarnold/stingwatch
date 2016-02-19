@@ -1,5 +1,5 @@
 Meteor.methods({
-  'app-states/init': function() {
+  'app-states/init': function(deviceId) {
     var as = AppStates.findOne()
     if(as)
       return true
@@ -19,8 +19,4 @@ Meteor.methods({
 
     return AppStates.update(as._id, {$set: {termsAccepted: true}})
   }
-});
-
-Meteor.publish("app-state", function() {
-  return AppStates.find()
 });
