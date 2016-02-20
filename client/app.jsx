@@ -3,7 +3,7 @@ App = React.createClass({
 
   getMeteorData() {
     initReactiveStores();
-    Session.set('device-id-set', false);
+    // Session.setDefault('device-id-set', false);
 
     var data = {
       ready: false
@@ -13,19 +13,23 @@ App = React.createClass({
       if(error) {
         // todo
       } else {
-        data.ready = true;
+        Meteor.subscribe('catcher/readings', DeviceId.get())
+        // Session.set('device-id-set', true);
       }
     });
-    
-    // var handles = [
-    //   Meteor.subscribe('dev-tools')
-    // ];
-    //
-    // var handlesReady = _.every(handles, handle => {return handle.ready();})
-    // if(handlesReady) {
-    //   // Session.set(APP_STATE, AppStates.findOne())
-    //   data.ready = true;
-    // }
+
+    // data.sessionReady = Session.get('device-id-set');
+
+    var handles = [
+      Meteor.subscribe('catcher/readings', DeviceId.get()),
+      // Meteor.subscribe('dev-tools')
+    ];
+
+    var handlesReady = _.every(handles, handle => {return handle.ready();})
+    if(handlesReady) {
+      data.ready = true;
+    }
+
 
     return data;
   },

@@ -2,8 +2,8 @@ WatchingPage = React.createClass({
   mixins: [ReactMeteorData],
 
   getMeteorData() {
-    this.readings = Meteor.subscribe('catcher/readings', DeviceId.get());
     return {
+      // logs: _Logger.find().fetch(),
       simReadings: Catcher.SIMReadings.find({}, {sort: {createdAt: -1}}).fetch(),
     }
   },
@@ -20,9 +20,19 @@ WatchingPage = React.createClass({
         <div className="container">
           <h1>Sim Readings</h1>
 
-          <ul>
-            {this.renderSIMReadings()}
-          </ul>
+          <table className='table'>
+            <thead>
+              <tr>
+                <th>MCC</th>
+                <th>MNC</th>
+                <th>Carrier Name</th>
+                <th>Country Code</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.renderSIMReadings()}
+            </tbody>
+          </table>
         </div>
       </EnsureTermsLayout>
     )

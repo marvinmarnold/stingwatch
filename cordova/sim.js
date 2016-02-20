@@ -6,23 +6,29 @@ if(Meteor.isCordova) {
   });
 
   var refresh = function() {
-    window.plugins.sim.getSimInfo(function(result) {
-      var telephonyEntry = {
-        readingType: Catcher.READING_TYPES.SIM,
-        deviceScannerId: 1,
-        mcc: parseInt(result.mcc),
-        mnc: parseInt(result.mnc),
-        carrierName: result.carrierName,
-        countryCode: result.countryCode
-      }
+    if(window.localStorage.getItem(TERMS_ACCEPTED)) {
+      window.plugins.sim.getSimInfo(function(result) {
 
-      // Meteor.call('_debug', telephonyEntry)
+        var simReading = {
+          commonReading: {
+            deviceId: DeviceId.get(),
+            readingType: Catcher.READING_TYPES.SIM,
+            deviceScannerId: 1,
+          },
+          mcc: parseInt(result.mcc),
+          mnc: parseInt(result.mnc),
+          carrierName: result.carrierName,
+          countryCode: result.countryCode
+        }
 
-      Meteor.call('telephony-entries/add', telephonyEntry)
-    }, function(error) {
-    //   _log("error")
-    //   _debug(error)
-    })
+        // Meteor.call('_debug', telephonyEntry)
+
+        Meteor.call('catcher/readings/insert', simReading)
+      }, function(error) {
+        _log("error")
+      //   _debug(error)
+      })
+    }
   }
 
   var startRefreshing = function() {
