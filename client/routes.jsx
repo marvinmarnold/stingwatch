@@ -24,3 +24,12 @@ FlowRouter.route("/watching", {
     });
   },
 })
+
+FlowRouter.route("/danger", {
+  name: "danger",
+  action: function(params) {
+    ReactLayout.render(App, {
+      content: <DangerPage />
+    });
+  },
+})

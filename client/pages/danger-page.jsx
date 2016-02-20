@@ -1,28 +1,24 @@
-WatchingPage = React.createClass({
+DangerPage = React.createClass({
   mixins: [ReactMeteorData],
 
   getMeteorData() {
     return {
-      // logs: _Logger.find().fetch(),
-      simReadings: Catcher.SIMReadings.find({}, {sort: {createdAt: -1}}).fetch(),
+      // detections
     }
-  },
-
-  renderSIMReadings() {
-    return this.data.simReadings.map((simReading) => {
-      return <SIMReading key={simReading._id} simReading={simReading} />;
-    });
   },
 
   render() {
     return (
       <EnsureTermsLayout>
         <div className="container text-xs-center p-y-2">
-          <h3 className='m-t-1'>StingWatch is running</h3>
-          <h5 className='m-t-1'>it will continue to collect information in the background</h5>
+          <h3 className='m-t-1'>Threat detected</h3>
+          <h5 className='m-t-1'>StingWatch has detected a Stingray within <strong>500m</strong> of you</h5>
 
           <img src="logo.gif" className='img-fluid watching-logo m-y-2 center-block'></img>
-          <Factoid></Factoid>
+
+          <p>
+            Detections are not always acurate and other kinds of disclaimer information go here.
+          </p>
 
           <hr/>
 
@@ -39,7 +35,7 @@ WatchingPage = React.createClass({
             </div>
           </div>
 
-          <a href="/danger" className='btn btn-link btn-sm'>Danger page</a>
+          <a href="/watching" className='btn btn-link btn-sm'>Watching page</a>
         </div>
       </EnsureTermsLayout>
     )
