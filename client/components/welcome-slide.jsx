@@ -1,7 +1,4 @@
 WelcomeSlide = React.createClass({
-  propTypes: {
-    orientation: React.PropTypes.string.isRequired,
-  },
 
   // https://github.com/hammerjs/hammer.js/wiki/Getting-Started
   swipe(event) {
@@ -27,7 +24,7 @@ WelcomeSlide = React.createClass({
 
 
   render() {
-    if(isLandscape(this.props.orientation)) {
+    if(DeviceOrientation.isLandscape()) {
 
       return (
         <Hammer onSwipe={this.swipe} onDoubleTap={this.swipe}>

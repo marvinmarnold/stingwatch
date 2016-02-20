@@ -4,7 +4,7 @@ EnsureIntroLayout = React.createClass({
   getMeteorData() {
 
     return {
-      introCompleted: Session.get(APP_STATE).introCompleted,
+      introCompleted: Session.get(INTRO_COMPLETED),
       introScreenNum: Session.get(INTRO_SLIDE_NUM)
     };
   },

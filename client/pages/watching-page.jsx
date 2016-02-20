@@ -2,15 +2,15 @@ WatchingPage = React.createClass({
   mixins: [ReactMeteorData],
 
   getMeteorData() {
-    this.telephonyEntriesSub = Meteor.subscribe('telephony-entries');
+    this.readings = Meteor.subscribe('catcher/readings', DeviceId.get());
     return {
-      telephonyEntries: TelephonyEntries.find({}, {sort: {createdAt: -1}}).fetch(),
+      simReadings: Catcher.SIMReadings.find({}, {sort: {createdAt: -1}}).fetch(),
     }
   },
 
-  renderTelephonyEntries() {
-    return this.data.telephonyEntries.map((telephonyEntry) => {
-      return <TelephonyEntry key={telephonyEntry._id} telephonyEntry={telephonyEntry} />;
+  renderSIMReadings() {
+    return this.data.simReadings.map((simReading) => {
+      return <SIMReading key={simReading._id} simReading={simReading} />;
     });
   },
 
@@ -18,10 +18,10 @@ WatchingPage = React.createClass({
     return (
       <EnsureTermsLayout>
         <div className="container">
-          <h1>Telephony Log</h1>
+          <h1>Sim Readings</h1>
 
           <ul>
-            {this.renderTelephonyEntries()}
+            {this.renderSIMReadings()}
           </ul>
         </div>
       </EnsureTermsLayout>

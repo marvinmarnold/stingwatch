@@ -14,7 +14,7 @@ Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
   api.use(['ecmascript', 'session', 'underscore']);
 
-  api.addFiles('device-orientation.js');
+  api.addFiles('device-orientation.js', 'client');
   api.addFiles('device-orientation-cordova.js', 'web.cordova');
 
   api.export('DeviceOrientation')

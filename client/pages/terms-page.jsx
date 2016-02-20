@@ -1,12 +1,12 @@
 TermsPage = React.createClass({
   acceptTerms() {
-    Meteor.call('app-states/accept-terms', function(error, result) {
-      if(error) {
-        return
-      }
+    setReactiveStorage(TERMS_ACCEPTED, true);
+    FlowRouter.go('/watching');
+  },
 
-      FlowRouter.go('/watching')
-    })
+  rejectTerms() {
+    setReactiveStorage(TERMS_ACCEPTED, false);
+    FlowRouter.go('/terms-rejected');
   },
 
   render() {

@@ -21,6 +21,7 @@ ddp-client@1.2.1
 ddp-common@1.2.2
 ddp-server@1.2.2
 deps@1.0.9
+device-orientation@0.0.1
 diff-sequence@1.0.1
 ecmascript@0.1.6
 ecmascript-runtime@0.2.6
@@ -41,6 +42,8 @@ kadira:react-layout@1.5.3
 launch-screen@1.0.4
 livedata@1.0.15
 logging@1.0.8
+marvin:device-id@0.0.1
+marvin:imsi-catcher@0.0.1
 mdg:validation-error@0.2.0
 meteor@1.1.10
 meteor-base@1.0.1

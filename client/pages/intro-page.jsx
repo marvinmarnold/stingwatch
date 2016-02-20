@@ -5,19 +5,18 @@ IntroPage = React.createClass({
     Session.setDefault(INTRO_SLIDE_NUM, 1);
 
     return {
-      orientation: Session.get(ORIENTATIONS.ORIENTATION),
       page: Session.get(INTRO_SLIDE_NUM),
-      logs: _Logger.find({}, {sort: {createdAt: -1}}).fetch()
+      // logs: _Logger.find({}, {sort: {createdAt: -1}}).fetch()
     }
   },
 
   render() {
     if(this.data.page === 1) {
-      return <WelcomeSlide orientation={this.data.orientation} />
+      return <WelcomeSlide />
     } else if(this.data.page === NUM_INTRO_SLIDES) {
-      return <EndingSlide orientation={this.data.orientation} />
+      return <EndingSlide />
     } else {
-      return <MiddleSlide orientation={this.data.orientation} page={this.data.page} />
+      return <MiddleSlide page={this.data.page} />
         // return <Logs logs={this.data.logs}><Intro1 orientation={this.data.orientation} /></Logs>
     }
   }

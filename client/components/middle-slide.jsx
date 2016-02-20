@@ -1,6 +1,5 @@
 MiddleSlide = React.createClass({
   propTypes: {
-    orientation: React.PropTypes.string.isRequired,
     page: React.PropTypes.number.isRequired
   },
 
@@ -40,7 +39,7 @@ MiddleSlide = React.createClass({
   },
 
   render() {
-    if(isLandscape(this.props.orientation)) {
+    if(DeviceOrientation.isLandscape()) {
 
       return (
         <Hammer onSwipe={this.swipe} onDoubleTap={this.swipe}>

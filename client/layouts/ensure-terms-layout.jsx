@@ -3,7 +3,7 @@ EnsureTermsLayout = React.createClass({
 
   getMeteorData() {
     return {
-      termsAccepted: Session.get(APP_STATE).termsAccepted,
+      termsAccepted: Session.get(TERMS_ACCEPTED),
     };
   },
 

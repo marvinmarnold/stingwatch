@@ -1,15 +1,19 @@
-var refreshPeriod = 15 * 1000 // ms
+var refreshPeriod = 60 * 60 * 1000 // 1 hour
 
 if(Meteor.isCordova) {
   Meteor.startup(function () {
-    startRefreshing()
+    startRefreshing();
   });
 
-  refresh = function() {
+  var refresh = function() {
     window.plugins.sim.getSimInfo(function(result) {
       var telephonyEntry = {
-        mcc: result.mcc,
-        mnc: result.mnc,
+        readingType: Catcher.READING_TYPES.SIM,
+        deviceScannerId: 1,
+        mcc: parseInt(result.mcc),
+        mnc: parseInt(result.mnc),
+        carrierName: result.carrierName,
+        countryCode: result.countryCode
       }
 
       // Meteor.call('_debug', telephonyEntry)
@@ -19,22 +23,9 @@ if(Meteor.isCordova) {
     //   _log("error")
     //   _debug(error)
     })
-    // telephony.getAll(function(result) {
-    //   var telephonyEntry = {
-    //     mcc: result,
-    //     mnc: result
-    //   }
-    //
-    //   // Meteor.call('_debug', telephonyEntry)
-    //
-    //   Meteor.call('telephony-entries/add', telephonyEntry)
-    // }, function(error) {
-    // //   _log("error")
-    // //   _debug(error)
-    // })
   }
 
-  startRefreshing = function() {
+  var startRefreshing = function() {
     refresh();
 
     Meteor.setTimeout(function () {

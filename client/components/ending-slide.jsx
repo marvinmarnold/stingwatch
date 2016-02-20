@@ -1,8 +1,4 @@
 EndingSlide = React.createClass({
-  propTypes: {
-    orientation: React.PropTypes.string.isRequired,
-  },
-
   // https://github.com/hammerjs/hammer.js/wiki/Getting-Started
   swipe(event) {
     var dir = event.direction
@@ -15,13 +11,8 @@ EndingSlide = React.createClass({
   clicked(event) {
     event.preventDefault()
 
-    Meteor.call('app-states/intro-completed', function(error, result) {
-      if(error) {
-        return
-      }
-
-      FlowRouter.go('/terms')
-    })
+    setReactiveStorage(INTRO_COMPLETED, true)
+    FlowRouter.go('/terms')
   },
 
   copy() {
@@ -37,7 +28,7 @@ EndingSlide = React.createClass({
   },
 
   render() {
-    if(isLandscape(this.props.orientation)) {
+    if(DeviceOrientation.isLandscape()) {
 
       return (
         <div>
@@ -49,16 +40,16 @@ EndingSlide = React.createClass({
 
       return (
         <Hammer onSwipe={this.swipe}>
-          <div className='intro-ending-portrait v-middle'>
+          <div className='intro-ending-portrait'>
             <div className='container'>
-              <div className="row">
+              <div className="row p-t-2">
                 <div className='col-xs-12'>
                   {this.textDiv()}
                 </div>
               </div>
               <div className="row">
-                <div className='col-xs-10 col-xs-offset-1'>
-                  <a href="#" className='btn btn-primary btn-lg center-block m-t-2' onClick={this.clicked}>
+                <div className='col-xs-10 offset-xs-1'>
+                  <a href="#" className='btn btn-primary btn-lg btn-block m-t-2' onClick={this.clicked}>
                     Start StingWatch
                   </a>
                 </div>

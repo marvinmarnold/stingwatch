@@ -2,24 +2,30 @@ App = React.createClass({
   mixins: [ReactMeteorData],
 
   getMeteorData() {
-    Meteor.call('app-states/init')
-    Session.setDefault(ORIENTATIONS.ORIENTATION, ORIENTATIONS.UNKNOWN);
+    initReactiveStores();
+    Session.set('device-id-set', false);
 
     var data = {
       ready: false
     };
 
-    var handles = [
-      Meteor.subscribe('telephony-entries'),
-      Meteor.subscribe('app-state'),
-      Meteor.subscribe('dev-tools')
-    ];
-
-    var handlesReady = _.every(handles, handle => {return handle.ready();})
-    if(handlesReady) {
-      Session.set(APP_STATE, AppStates.findOne())
-      data.ready = true;
-    }
+    DeviceId.gen(function(error, deviceId) {
+      if(error) {
+        // todo
+      } else {
+        data.ready = true;
+      }
+    });
+    
+    // var handles = [
+    //   Meteor.subscribe('dev-tools')
+    // ];
+    //
+    // var handlesReady = _.every(handles, handle => {return handle.ready();})
+    // if(handlesReady) {
+    //   // Session.set(APP_STATE, AppStates.findOne())
+    //   data.ready = true;
+    // }
 
     return data;
   },

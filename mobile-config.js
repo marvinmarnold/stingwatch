@@ -1,6 +1,6 @@
 App.info({
   id: 'org.stingraymappingproject.sting-watch',
-  name: 'StringWatch',
+  name: 'StingWatch',
   description: 'StingWatch',
   author: 'The Stingray Mapping Project',
   email: 'marvin@unplugged.im',

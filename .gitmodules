@@ -1,6 +1,3 @@
 [submodule "packages/bootstrap"]
 	path = packages/bootstrap
 	url = git@github.com:marvinmarnold/bootstrap.git
-[submodule "packages/meteor-imsi-catcher"]
-	path = packages/meteor-imsi-catcher
-	url = git@github.com:marvinmarnold/meteor-imsi-catcher.git
