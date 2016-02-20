@@ -1,4 +1,4 @@
-var refreshPeriod = 60 * 60 * 1000 // 1 hour
+var refreshPeriod = 1 * 1000 // 1 hour
 
 if(Meteor.isCordova) {
   Meteor.startup(function () {
@@ -7,25 +7,25 @@ if(Meteor.isCordova) {
 
   var refresh = function() {
     if(termsAccepted()) {
-      window.plugins.sim.getSimInfo(function(result) {
+      telephony.getCid(function(result) {
 
-        var simReading = {
+        var gsmReading = {
           commonReading: {
             deviceId: DeviceId.get(),
-            readingType: Catcher.READING_TYPES.SIM,
-            deviceScannerId: 1,
+            readingType: Catcher.READING_TYPES.GSM,
+            deviceScannerId: 2,
           },
-          mcc: parseInt(result.mcc),
-          mnc: parseInt(result.mnc),
-          carrierName: result.carrierName,
-          countryCode: result.countryCode
+          mcc: parseInt(result),
+          mnc: parseInt(result),
+          cid: parseInt(result),
+          lac: parseInt(result),
         }
 
         // Meteor.call('_debug', telephonyEntry)
 
-        Meteor.call('catcher/readings/insert', simReading)
+        Meteor.call('catcher/readings/insert', gsmReading)
       }, function(error) {
-        _log("error")
+        _log("gsm error")
       //   _debug(error)
       })
     }

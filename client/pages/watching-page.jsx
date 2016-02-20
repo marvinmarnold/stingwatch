@@ -16,6 +16,7 @@ WatchingPage = React.createClass({
 
   render() {
     return (
+      <GeekModeLayout>
       <EnsureTermsLayout>
         <div className="container text-xs-center p-y-2">
           <h3 className='m-t-1'>StingWatch is running</h3>
@@ -38,10 +39,9 @@ WatchingPage = React.createClass({
               </button>
             </div>
           </div>
-
-          <a href="/danger" className='btn btn-link btn-sm'>Danger page</a>
         </div>
       </EnsureTermsLayout>
+      </GeekModeLayout>
     )
   }
 

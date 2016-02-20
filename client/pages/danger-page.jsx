@@ -5,13 +5,11 @@ DangerPage = React.createClass({
     var data = {
     }
 
-
-
     return data;
   },
 
   componentDidMount() {
-    Tracker.autorun(function(){
+    Tracker.autorun(function() {
       if(Mapbox.loaded()) {
         L.mapbox.accessToken = "pk.eyJ1IjoidW5wbHVnZ2VkIiwiYSI6IjNlYzFmM2YwZDYzYTM0ZjE5YzYyOGY1OWViM2Q0ODRhIn0.goeHIOasI8pdQeUSY0_Z3Q";
         var map = L.mapbox.map('dangerMap', 'mapbox.streets').setView([38.731407,  -96.386617], 4);
@@ -21,6 +19,7 @@ DangerPage = React.createClass({
 
   render() {
     return (
+      <GeekModeLayout>
       <EnsureTermsLayout>
         <div className="container text-xs-center p-y-2">
           <h3 className='m-t-1'>Threat detected</h3>
@@ -46,10 +45,9 @@ DangerPage = React.createClass({
               </button>
             </div>
           </div>
-
-          <a href="/watching" className='btn btn-link btn-sm'>Watching page</a>
         </div>
       </EnsureTermsLayout>
+      </GeekModeLayout>
     )
   }
 

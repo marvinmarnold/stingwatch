@@ -11,3 +11,7 @@ initReactiveStores = function() {
     Session.setDefault(key, storedVal);
   })
 }
+
+termsAccepted = function() {
+  return window.localStorage.getItem(TERMS_ACCEPTED);
+}

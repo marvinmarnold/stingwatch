@@ -33,3 +33,21 @@ FlowRouter.route("/danger", {
     });
   },
 })
+
+FlowRouter.route("/geek/gsm-readings", {
+  name: "gsmReadings",
+  action: function(params) {
+    ReactLayout.render(App, {
+      content: <GSMReadingsPage />
+    });
+  },
+})
+
+FlowRouter.route("/geek/sim-readings", {
+  name: "simReadings",
+  action: function(params) {
+    ReactLayout.render(App, {
+      content: <SIMReadingsPage />
+    });
+  },
+})
