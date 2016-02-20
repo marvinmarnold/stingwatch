@@ -2,9 +2,21 @@ DangerPage = React.createClass({
   mixins: [ReactMeteorData],
 
   getMeteorData() {
-    return {
-      // detections
+    var data = {
     }
+
+
+
+    return data;
+  },
+
+  componentDidMount() {
+    Tracker.autorun(function(){
+      if(Mapbox.loaded()) {
+        L.mapbox.accessToken = "pk.eyJ1IjoidW5wbHVnZ2VkIiwiYSI6IjNlYzFmM2YwZDYzYTM0ZjE5YzYyOGY1OWViM2Q0ODRhIn0.goeHIOasI8pdQeUSY0_Z3Q";
+        var map = L.mapbox.map('dangerMap', 'mapbox.streets').setView([38.731407,  -96.386617], 4);
+      }
+    });
   },
 
   render() {
@@ -14,7 +26,7 @@ DangerPage = React.createClass({
           <h3 className='m-t-1'>Threat detected</h3>
           <h5 className='m-t-1'>StingWatch has detected a Stingray within <strong>500m</strong> of you</h5>
 
-          <img src="logo.gif" className='img-fluid watching-logo m-y-2 center-block'></img>
+          <div id="dangerMap" className='m-y-2'></div>
 
           <p>
             Detections are not always acurate and other kinds of disclaimer information go here.
