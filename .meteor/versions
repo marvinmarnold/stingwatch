@@ -45,6 +45,7 @@ livedata@1.0.15
 logging@1.0.8
 marvin:device-id@0.0.1
 marvin:imsi-catcher@0.0.1
+matb33:collection-hooks@0.8.1
 mdg:validation-error@0.2.0
 meteor@1.1.10
 meteor-base@1.0.1
