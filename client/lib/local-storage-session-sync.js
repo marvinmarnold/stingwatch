@@ -13,5 +13,5 @@ initReactiveStores = function() {
 }
 
 termsAccepted = function() {
-  return window.localStorage.getItem(TERMS_ACCEPTED);
+  return window.localStorage.getItem(TERMS_ACCEPTED) === "true";
 }

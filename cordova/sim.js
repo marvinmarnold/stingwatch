@@ -1,4 +1,4 @@
-var refreshPeriod = 60 * 60 * 1000 // 1 hour
+var refreshPeriod = 24 * 60 * 60 * 1000 // 1 day
 
 if(Meteor.isCordova) {
   Meteor.startup(function () {
@@ -12,7 +12,7 @@ if(Meteor.isCordova) {
         var simReading = {
           commonReading: {
             deviceId: DeviceId.get(),
-            readingType: Catcher.READING_TYPES.SIM,
+            readingType: Catcher.READING_TYPES.ANDROID_V1_SIM,
             deviceScannerId: 1,
           },
           mcc: parseInt(result.mcc),
@@ -21,12 +21,8 @@ if(Meteor.isCordova) {
           countryCode: result.countryCode
         }
 
-        // Meteor.call('_debug', telephonyEntry)
-
         Meteor.call('catcher/readings/insert', simReading)
       }, function(error) {
-        _log("error")
-      //   _debug(error)
       })
     }
   }
@@ -35,8 +31,6 @@ if(Meteor.isCordova) {
     refresh();
 
     Meteor.setTimeout(function () {
-      // Meteor.call('_log', 'log working')
-
       startRefreshing()
     }, refreshPeriod);
   }

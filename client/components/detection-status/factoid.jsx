@@ -1,11 +1,23 @@
+var sessionFactoid = 'session-factoid';
 Factoid = React.createClass({
+  mixins: [ReactMeteorData],
+
+  getMeteorData() {
+
+    Session.setDefault(sessionFactoid, randFactoid());
+
+    return {
+      // logs: _Logger.find().fetch(),
+      factoid: Session.get(sessionFactoid),
+    }
+  },
 
   render() {
     // if(DeviceOrientation.isLandscape()) {
     // } else {
 
       return (
-        <p>{randFactoid()}</p>
+        <p>{this.data.factoid}</p>
       )
 
     // }
@@ -22,4 +34,15 @@ var factoids = [
 
 var randFactoid = function() {
   return _.sample(factoids);
+}
+
+Meteor.startup(function(){
+  changeFactoid();
+});
+
+var changeFactoid = function() {
+  Session.set(sessionFactoid, randFactoid());
+  Meteor.setTimeout(function () {
+    changeFactoid();
+  }, 30 * 1000);
 }

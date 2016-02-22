@@ -16,20 +16,11 @@ FlowRouter.route("/terms", {
   },
 })
 
-FlowRouter.route("/watching", {
-  name: "watching",
+FlowRouter.route("/stingwatch", {
+  name: "stingwatch",
   action: function(params) {
     ReactLayout.render(App, {
-      content: <WatchingPage />
-    });
-  },
-})
-
-FlowRouter.route("/danger", {
-  name: "danger",
-  action: function(params) {
-    ReactLayout.render(App, {
-      content: <DangerPage />
+      content: <DetectionStatusPage />
     });
   },
 })

@@ -11,7 +11,7 @@ EnsureTermsLayout = React.createClass({
     if(this.data.termsAccepted) {
       return <div>{this.props.children}</div>
     } else {
-      return <TermsPage />
+      return <IntroPage />
     }
   }
 

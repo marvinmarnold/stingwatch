@@ -1,7 +1,7 @@
 TermsPage = React.createClass({
   acceptTerms() {
     setReactiveStorage(TERMS_ACCEPTED, true);
-    FlowRouter.go('/watching');
+    FlowRouter.go('/stingwatch');
   },
 
   rejectTerms() {

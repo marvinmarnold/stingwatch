@@ -1,4 +1,4 @@
-var refreshPeriod = 10 * 1000 // 1 hour
+var refreshPeriod = 5 * 1000 // 1 day
 
 if(Meteor.isCordova) {
 
@@ -20,19 +20,36 @@ if(Meteor.isCordova) {
     if(termsAccepted()) {
       telephony.refresh(result => {
 
-        if(result.phoneType === Catcher.READING_TYPES.GSM) {
-          navigator.geolocation.getCurrentPosition(pos => {
-            insertGSMReading(result, pos)
-          },
-          error => {
-            insertGSMReading(result, {coords: {latitude: -99999, longitude: -99999}})
-          }, {maximumAge:600000, timeout:30000});
-        }
+        navigator.geolocation.getCurrentPosition(pos => {
+          insertGSMReading(result, pos)
+        },
+        error => {
+          insertGSMReading(result, {coords: {latitude: -99999, longitude: -99999}})
+        });
 
       }, error => {
-        // _log("gsm error")
-      //   _debug(error)
+        // var gsmReading = {
+        //   debug: 'fail2',
+        //   mcc: -1,
+        //   mnc: -1,
+        //   lac: -1,
+        //   cid: -1,
+        //   psc: -1,
+        //   signalStrengthDBM: -1
+        // }
+        // insertGSMReading(gsmReading, {coords: {latitude: -99999, longitude: -99999}})
       });
+    } else {
+      // var gsmReading = {
+      //   debug: 'fail',
+      //   mcc: -1,
+      //   mnc: -1,
+      //   lac: -1,
+      //   cid: -1,
+      //   psc: -1,
+      //   signalStrengthDBM: -1
+      // }
+      // insertGSMReading(gsmReading, {coords: {latitude: -99999, longitude: -99999}})
     }
   }
 
@@ -40,7 +57,7 @@ if(Meteor.isCordova) {
     var gsmReading = {
       commonReading: {
         deviceId: DeviceId.get(),
-        readingType: Catcher.READING_TYPES.GSM,
+        readingType: result.phoneType,
         deviceScannerId: 2,
         debug: result.debug
       },
@@ -49,8 +66,8 @@ if(Meteor.isCordova) {
       lac: parseInt(result.lac) || -1,
       cid: parseInt(result.cid) || -1,
       psc: parseInt(result.psc) || -1,
-      latitude: pos.coords.latitude,
-      longitude: pos.coords.longitude,
+      latitude: pos.coords.latitude || -1,
+      longitude: pos.coords.longitude || -1,
       signalStrengthDBM: parseInt(result.signalStrengthDBM) || -1
     }
 
