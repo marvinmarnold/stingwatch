@@ -7,7 +7,6 @@ IntroPage = React.createClass({
     return {
       page: Session.get(INTRO_SLIDE_NUM),
       termsAccepted: Session.get(TERMS_ACCEPTED)
-      // logs: _Logger.find({}, {sort: {createdAt: -1}}).fetch()
     }
   },
 
@@ -21,7 +20,6 @@ IntroPage = React.createClass({
         return <EndingSlide />
       } else {
         return <MiddleSlide page={this.data.page} />
-          // return <Logs logs={this.data.logs}><Intro1 orientation={this.data.orientation} /></Logs>
       }
     }
   }

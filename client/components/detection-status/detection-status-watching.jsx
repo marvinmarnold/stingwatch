@@ -3,7 +3,6 @@ DetectionStatusWatching = React.createClass({
 
   getMeteorData() {
     return {
-      // logs: _Logger.find().fetch(),
       simReadings: Catcher.SIMReadings.find({}, {sort: {createdAt: -1}}).fetch(),
     }
   },

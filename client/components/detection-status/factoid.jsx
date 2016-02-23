@@ -7,7 +7,6 @@ Factoid = React.createClass({
     Session.setDefault(sessionFactoid, randFactoid());
 
     return {
-      // logs: _Logger.find().fetch(),
       factoid: Session.get(sessionFactoid),
     }
   },

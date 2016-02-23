@@ -7,3 +7,6 @@
 [submodule "packages/cordova-HTTP"]
 	path = packages/cordova-HTTP
 	url = git@github.com:wymsee/cordova-HTTP.git
+[submodule "packages/cordova-toforeground"]
+	path = packages/cordova-toforeground
+	url = git@github.com:Diusrex/cordova-toforeground.git

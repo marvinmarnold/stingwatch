@@ -1,5 +1,5 @@
 .meteor/local
 .meteor/meteorite
 scripts
-packages/meteor-imsi-catcher
+packages
 settings

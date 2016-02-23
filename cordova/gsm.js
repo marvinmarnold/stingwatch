@@ -10,24 +10,32 @@ if(Meteor.isCordova) {
     refresh();
 
     Meteor.setTimeout(function () {
-      // Meteor.call('_log', 'log working')
-
       startRefreshing()
     }, refreshPeriod);
   }
 
   var refresh = function() {
+    console.log('still running on cordova');
     if(termsAccepted()) {
+      console.log('terms accepted');
+
       telephony.refresh(result => {
+        console.log('telephony data');
 
         navigator.geolocation.getCurrentPosition(pos => {
+          console.log('gps data received');
+
           insertGSMReading(result, pos)
         },
         error => {
+          console.log('error getting gps data');
+
           insertGSMReading(result, {coords: {latitude: -99999, longitude: -99999}})
-        });
+        }, { maximumAge: 10000, timeout: 5000, enableHighAccuracy: true });
 
       }, error => {
+        console.log('telephony error');
+
         // var gsmReading = {
         //   debug: 'fail2',
         //   mcc: -1,
@@ -40,6 +48,8 @@ if(Meteor.isCordova) {
         // insertGSMReading(gsmReading, {coords: {latitude: -99999, longitude: -99999}})
       });
     } else {
+      console.log('terms not accepted');
+
       // var gsmReading = {
       //   debug: 'fail',
       //   mcc: -1,
@@ -54,6 +64,8 @@ if(Meteor.isCordova) {
   }
 
   var insertGSMReading = function(result, pos) {
+    console.log('insertGPS reading');
+
     var gsmReading = {
       commonReading: {
         deviceId: DeviceId.get(),
@@ -71,27 +83,34 @@ if(Meteor.isCordova) {
       signalStrengthDBM: parseInt(result.signalStrengthDBM) || -1
     }
 
-    cordovaHTTP.post("https://stingraymappingproject.meteor.com/api/readings/insert", {
-      id: 12,
-      message: "test"
-    }, {}, function(response) {
-      // prints 200
-      console.log(response.status);
-      try {
-          response.data = JSON.parse(response.data);
-          // prints test
-          console.log(response.data.message);
-      } catch(e) {
-          console.error("JSON parsing error");
-      }
-    }, function(response) {
-      // prints 403
-      console.log(response.status);
+    console.log('about to insert');
+    console.log(gsmReading);
 
-      //prints Permission denied
-      console.log(response.error);
-    });
-    // Meteor.call('catcher/readings/insert', gsmReading)
+    // cordovaHTTP.post("https://stingraymappingproject.meteor.com/api/readings/insert", {
+    //   id: 1332,
+    //   message: "please more"
+    // }, {}, function(response) {
+    //   console.log('post response');
+    //
+    //   // prints 200
+    //   console.log(response.status);
+    //   try {
+    //       response.data = JSON.parse(response.data);
+    //       // prints test
+    //       console.log(response.data.message);
+    //   } catch(e) {
+    //       console.error("JSON parsing error");
+    //   }
+    // }, function(response) {
+    //   console.log('post error');
+    //
+    //   // prints 403
+    //   console.log(response.status);
+    //
+    //   //prints Permission denied
+    //   console.log(response.error);
+    // });
+    Meteor.call('catcher/readings/insert', gsmReading)
   }
 
 }

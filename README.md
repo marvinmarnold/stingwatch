@@ -49,7 +49,7 @@ meteor run android-device -p 4000
 ````
 Deploy to your android, using remote server
 ````
-meteor run android-device --mobile-server http://stingwatch.meteor.com
+meteor run android-device --mobile-server http://stingraymappingproject.meteor.com
 ````
 
 ### Build notes
@@ -73,3 +73,7 @@ https://forum.ionicframework.com/t/how-to-run-cordova-plugin-in-android-backgrou
 http://stackoverflow.com/questions/10343828/creating-an-android-service-with-phonegap-have-phonegap-app-run-even-when-clos
 https://github.com/AdamBrodzinski/Meteor-Cordova-Status
 https://forums.meteor.com/t/is-ddp-working-when-mobile-client-offline-or-running-in-background/9518/3
+
+com.synconset.cordovaHTTP@file://packages/cordova-HTTP
+
+Catcher.Detections.insert({basestationId: 'asdf', detectorName: 'asdf', score: 12, message: '123'})
