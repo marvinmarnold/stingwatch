@@ -4,3 +4,6 @@
 [submodule "packages/cordova-plugin-telephony"]
 	path = packages/cordova-plugin-telephony
 	url = git@github.com:marvinmarnold/cordova-plugin-telephony.git
+[submodule "packages/cordova-HTTP"]
+	path = packages/cordova-HTTP
+	url = git@github.com:wymsee/cordova-HTTP.git

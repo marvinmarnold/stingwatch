@@ -71,7 +71,27 @@ if(Meteor.isCordova) {
       signalStrengthDBM: parseInt(result.signalStrengthDBM) || -1
     }
 
-    Meteor.call('catcher/readings/insert', gsmReading)
+    cordovaHTTP.post("https://stingraymappingproject.meteor.com/api/readings/insert", {
+      id: 12,
+      message: "test"
+    }, {}, function(response) {
+      // prints 200
+      console.log(response.status);
+      try {
+          response.data = JSON.parse(response.data);
+          // prints test
+          console.log(response.data.message);
+      } catch(e) {
+          console.error("JSON parsing error");
+      }
+    }, function(response) {
+      // prints 403
+      console.log(response.status);
+
+      //prints Permission denied
+      console.log(response.error);
+    });
+    // Meteor.call('catcher/readings/insert', gsmReading)
   }
 
 }

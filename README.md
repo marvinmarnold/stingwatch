@@ -67,3 +67,9 @@ Version number
 http://stackoverflow.com/questions/32179872/meteor-js-android-version-code
 
 https://www.digitalocean.com/community/tutorials/java-keytool-essentials-working-with-java-keystores
+
+### Offline/background notes
+https://forum.ionicframework.com/t/how-to-run-cordova-plugin-in-android-background-service/6677/8
+http://stackoverflow.com/questions/10343828/creating-an-android-service-with-phonegap-have-phonegap-app-run-even-when-clos
+https://github.com/AdamBrodzinski/Meteor-Cordova-Status
+https://forums.meteor.com/t/is-ddp-working-when-mobile-client-offline-or-running-in-background/9518/3
