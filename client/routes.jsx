@@ -2,43 +2,7 @@ FlowRouter.route("/", {
   name: "home",
   action: function(params) {
     ReactLayout.render(App, {
-      content: <IntroPage />
-    });
-  },
-})
-
-FlowRouter.route("/terms", {
-  name: "terms",
-  action: function(params) {
-    ReactLayout.render(App, {
-      content: <TermsPage />
-    });
-  },
-})
-
-FlowRouter.route("/stingwatch", {
-  name: "stingwatch",
-  action: function(params) {
-    ReactLayout.render(App, {
-      content: <DetectionStatusPage />
-    });
-  },
-})
-
-FlowRouter.route("/geek/gsm-readings", {
-  name: "gsmReadings",
-  action: function(params) {
-    ReactLayout.render(App, {
-      content: <GSMReadingsPage />
-    });
-  },
-})
-
-FlowRouter.route("/geek/sim-readings", {
-  name: "simReadings",
-  action: function(params) {
-    ReactLayout.render(App, {
-      content: <SIMReadingsPage />
+      content: <h1>App started</h1>
     });
   },
 })
