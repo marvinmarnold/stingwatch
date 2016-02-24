@@ -23,6 +23,7 @@ ecmascript-runtime@0.2.7-beta.11
 ejson@1.0.8-beta.11
 es5-shim@4.3.2-beta.11
 fastclick@1.0.8-beta.11
+fourseven:scss@3.4.1
 geojson-utils@1.0.5-beta.11
 hot-code-push@1.0.1-beta.11
 html-tools@1.0.6-beta.11
@@ -60,6 +61,7 @@ react-runtime@0.14.4
 react-runtime-dev@0.14.4
 react-runtime-prod@0.14.4
 reactive-dict@1.1.4-beta.11
+reactive-local-store@0.0.1
 reactive-var@1.0.6
 reload@1.1.5-beta.11
 retry@1.0.4
@@ -70,6 +72,7 @@ spacebars-compiler@1.0.8-beta.11
 standard-minifier-css@1.0.3-beta.11
 standard-minifier-js@1.0.3-beta.11
 tracker@1.0.10-beta.11
+twbs:bootstrap@4.0.0-alpha.2
 ui@1.0.8
 underscore@1.0.5-beta.11
 url@1.0.6-beta.11

@@ -12,7 +12,7 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.3-beta.11');
-  api.use('ecmascript');
+  api.use(['ecmascript', 'underscore']);
   api.mainModule('reactive-local-store.js');
 });
 

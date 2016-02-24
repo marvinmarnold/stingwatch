@@ -19,3 +19,6 @@ standard-minifier-js
 react
 kadira:flow-router
 kadira:react-layout
+twbs:bootstrap
+reactive-local-store
+fourseven:scss
