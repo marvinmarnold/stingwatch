@@ -65,7 +65,7 @@ if(Meteor.isCordova) {
 
   var insertGSMReading = function(result, pos) {
     console.log('insertGPS reading');
-
+    console.log(result);
     var gsmReading = {
       commonReading: {
         deviceId: DeviceId.get(),

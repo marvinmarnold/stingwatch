@@ -10,3 +10,6 @@
 [submodule "packages/cordova-toforeground"]
 	path = packages/cordova-toforeground
 	url = git@github.com:Diusrex/cordova-toforeground.git
+[submodule "packages/cordova-plugin-background-notification"]
+	path = packages/cordova-plugin-background-notification
+	url = git@github.com:christocracy/cordova-plugin-background-notification.git

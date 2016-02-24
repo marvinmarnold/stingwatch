@@ -6,17 +6,15 @@ if(Meteor.isCordova) {
 
         navigator.notification.beep(1);
 
-        navigator.notification.alert(
-          "A stingray was detected near you. This message will only show if app is already active.",
-          () => {},
-          'Stingwatch Detection',
-          'Get details')
-
-        // toForeground("MainActivity", 'org.stingraymappingproject.sting-watch', () => {
-        //   console.log('success toFroeground');
-        // }, () => {
-        //   console.log('fail toForeground');
-        // });
+        cordova.plugins.notification.local.schedule({
+          id         : 1,
+          title      : 'Stingray Detected',
+          text       : 'Stingwatch thinks there might be a stingray near you. Open the app to learn more.',
+          sound      : null,
+          every      : 'year',
+          autoClear  : true,
+          at         : new Date(new Date().getTime() + 1 * 1000)
+        });
 
       } else {
       }

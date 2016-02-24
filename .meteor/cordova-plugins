@@ -1,5 +1,6 @@
-com.diusrex.toforeground@file://packages/cordova-toforeground
 cordova-plugin-dialogs@1.2.0
+cordova-plugin-geolocation@2.1.0
 cordova-plugin-sim@1.2.0
 cordova-plugin-telephony@file://packages/cordova-plugin-telephony
 cordova-plugin-vibration@2.1.0
+de.appplant.cordova.plugin.local-notification@file://packages/LocalNotification
