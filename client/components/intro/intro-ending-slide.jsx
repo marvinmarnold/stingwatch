@@ -5,7 +5,7 @@ IntroEndingSlide = React.createClass({
   swipe(event) {
     var dir = event.direction
 
-    if(hammerIsLeft(dir)) {
+    if(hammerIsRight(dir)) {
       Session.set(INTRO_SLIDE_NUM, NUM_INTRO_SLIDES-1)
     }
   },
@@ -21,7 +21,7 @@ IntroEndingSlide = React.createClass({
   },
 
   copy() {
-    return "By using StingWatch, you will be helping to fight back increased surveillance by contributing data with the ultimate goal of avoiding the surveillance state."
+    return "By using Stingwatch, you will be helping to fight back increased surveillance by contributing data with the ultimate goal of avoiding the surveillance state."
   },
 
   textDiv() {
@@ -45,7 +45,7 @@ IntroEndingSlide = React.createClass({
             <div className="row">
               <div className='col-xs-10 offset-xs-1'>
                 <a href="#" className='btn btn-primary btn-lg btn-block m-t-2' onClick={this.clicked}>
-                  Start StingWatch
+                  Start Stingwatch
                 </a>
               </div>
             </div>

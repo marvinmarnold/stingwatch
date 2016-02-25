@@ -15,6 +15,7 @@ GeekConsole = React.createClass({
     Session.set(STATUS, STATUS_DANGER)
     Session.set(INTRO_COMPLETED, false)
     Session.set(TERMS_ACCEPTED, false)
+    Session.set(INTRO_SLIDE_NUM, 1);
   },
 
   terms() {

@@ -19,7 +19,7 @@ StatusWatching = React.createClass({
         <h3 className='m-t-1'>Stingwatch is running</h3>
         <h5 className='m-t-1'>it will continue to collect information in the background</h5>
 
-        <img src="logo.gif" className='img-fluid watching-logo m-y-2 center-block'></img>
+        <img src="logo.gif" className='img-fluid watching-logo m-t-2 m-b-1 center-block'></img>
         <Factoid></Factoid>
 
         <hr/>

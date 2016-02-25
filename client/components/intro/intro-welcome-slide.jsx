@@ -16,7 +16,7 @@ IntroWelcomeSlide = React.createClass({
   render() {
       return (
         <Hammer onSwipe={this.swipe} onDoubleTap={this.swipe}>
-          <div className="container p-t-3 text-xs-center loading">
+          <div className="container p-t-2 p-b-1 text-xs-center loading">
             <h1>Stingwatch</h1>
             <img src="logo.gif" className='img-fluid simple-logo m-y-2 center-block'></img>
             <h3>{this.copy()}</h3>
