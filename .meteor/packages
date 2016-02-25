@@ -23,3 +23,5 @@ twbs:bootstrap
 reactive-local-store
 fourseven:scss
 praneybehl:reactjs-hammerjs
+fortawesome:fontawesome
+pauloborges:mapbox@2.2.3_2
