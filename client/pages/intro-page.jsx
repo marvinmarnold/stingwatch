@@ -5,8 +5,7 @@ IntroPage = React.createClass({
     Session.setDefault(INTRO_SLIDE_NUM, 1);
 
     return {
-      page: Session.get(INTRO_SLIDE_NUM),
-      termsAccepted: Session.get(TERMS_ACCEPTED)
+      page: Session.get(INTRO_SLIDE_NUM)
     }
   },
 

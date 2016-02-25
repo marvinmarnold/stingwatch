@@ -13,11 +13,15 @@ App = React.createClass({
       geekModeEnabled: false
     };
 
-    data.intoCompleted = ReactiveStore.get(INTRO_COMPLETED)
-    data.termsAccepted = ReactiveStore.get(TERMS_ACCEPTED)
-    data.geekModeEnabled = ReactiveStore.get(GEEK_MODE_ENABLED)
+    data.introCompleted = Session.get(INTRO_COMPLETED)
+    data.termsAccepted = Session.get(TERMS_ACCEPTED)
+    data.geekModeEnabled = Session.get(GEEK_MODE_ENABLED)
 
     return data;
+  },
+
+  componentDidMount() {
+
   },
 
   // Show loading screen until app ready
@@ -28,10 +32,10 @@ App = React.createClass({
         if(this.data.termsAccepted) {
           return this.props.content;
         } else {
-          return <GeekModeLayout><TermsPage /></GeekModeLayout>
+          return <TermsPage />
         }
       } else {
-        return <GeekModeLayout><IntroPage /></GeekModeLayout>
+        return <IntroPage />
       }
     } else {
       return <LoadingPage />

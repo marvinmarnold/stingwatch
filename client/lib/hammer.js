@@ -1,7 +1,7 @@
-hammerIsRight = function(dir) {
+hammerIsLeft= function(dir) {
   return dir === 2;
 }
 
-hammerIsLeft = function(dir) {
-  return dir ===4;
+hammerIsRight = function(dir) {
+  return dir === 4;
 }

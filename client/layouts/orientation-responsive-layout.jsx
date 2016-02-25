@@ -1,24 +1,19 @@
 OrientationResponsiveLayout = React.createClass({
-  mixins: [ReactMeteorData],
-
-  getMeteorData() {
-
-    return {
-      introCompleted: Session.get(INTRO_COMPLETED),
-      introScreenNum: Session.get(INTRO_SLIDE_NUM),
-    };
+  propTypes: {
+    landscape: React.PropTypes.object.isRequired,
+    portrait: React.PropTypes.object.isRequired
   },
 
   render() {
-    if(DeviceOrientation.isLandscape()) {
+    // if(DeviceOrientation.isLandscape()) {
+    //
+    //   return this.data.landscape;
+    //
+    // } else {
 
-      return this.data.landscape;
+      return this.data.portrait;
 
-    } else {
-
-      return this.data.portraig;
-
-    }
+    // }
   }
 
 });

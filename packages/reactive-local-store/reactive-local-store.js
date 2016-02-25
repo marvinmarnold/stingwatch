@@ -14,13 +14,22 @@ if(Meteor.isClient) {
     },
 
     get(key) {
-      return Session.get(key);
+      var v = Session.get(key);
+
+      // if(v === "true") {
+      //   return true;
+      // } else if(v === "false") {
+      //   return false;
+      // } else {
+        return v;
+      // }
     },
 
     init() {
       _.each(_keys, key => {
-        var v = window.localStorage.getItem(TERMS_ACCEPTED);
-        Session.set(key, v);
+        var v = window.localStorage.getItem(key);
+        Session.set(key, sanitizedValue(v));
+        // console.log('init() key: ' + key + ", val: " + v);
       })
     },
 
@@ -28,4 +37,14 @@ if(Meteor.isClient) {
       _keys = keys;
     }
   })
+}
+
+var sanitizedValue = function(v) {
+  if(v === "true") {
+    return true;
+  } else if(v === "false") {
+    return false;
+  } else {
+    return v;
+  }
 }
