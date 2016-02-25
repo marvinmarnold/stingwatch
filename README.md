@@ -49,7 +49,7 @@ meteor run android-device -p 4000
 ````
 Deploy to your android, using remote server
 ````
-meteor run android-device --mobile-server http://stingraymappingproject.meteor.com
+meteor run android-device --mobile-server https://stingraymappingproject.meteor.com
 ````
 
 ### Build notes

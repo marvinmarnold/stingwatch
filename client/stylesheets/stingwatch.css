@@ -11,3 +11,7 @@ html, body, #react-root {
   display: flex;
   align-items: center;
 }
+
+.simple-logo {
+  max-height: 15rem;
+}

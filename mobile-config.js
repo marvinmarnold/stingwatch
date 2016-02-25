@@ -5,7 +5,7 @@ App.info({
   author: 'The Stingray Mapping Project',
   email: 'marvin@unplugged.im',
   website: 'https://stingraymappingproject.org',
-  version: '0.0.1'
+  version: '0.0.2'
 });
 
 App.icons({

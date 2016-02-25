@@ -53,6 +53,7 @@ mongo-id@1.0.1
 npm-mongo@1.4.40-beta.11
 observe-sequence@1.0.8-beta.11
 ordered-dict@1.0.4
+praneybehl:reactjs-hammerjs@0.4.2
 promise@0.5.2-beta.11
 random@1.0.6-beta.11
 react@0.14.3_1

@@ -1,2 +1,5 @@
 TERMS_ACCEPTED = 'terms-accepted'
 INTRO_COMPLETED = 'intro-completed'
+INTRO_SLIDE_NUM = 'intro-slide-number'
+GEEK_MODE_ENABLED = 'geek-mode-enabled'
+TERMS_REJECTED = 'terms-rejected'

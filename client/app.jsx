@@ -7,10 +7,15 @@ App = React.createClass({
     ReactiveStore.init();
 
     var data = {
-      ready: false,
+      ready: true,
       introCompleted: false,
-      termsAccepted: false
+      termsAccepted: false,
+      geekModeEnabled: false
     };
+
+    data.intoCompleted = ReactiveStore.get(INTRO_COMPLETED)
+    data.termsAccepted = ReactiveStore.get(TERMS_ACCEPTED)
+    data.geekModeEnabled = ReactiveStore.get(GEEK_MODE_ENABLED)
 
     return data;
   },
@@ -23,10 +28,10 @@ App = React.createClass({
         if(this.data.termsAccepted) {
           return this.props.content;
         } else {
-          return <h1>Terms</h1>
+          return <GeekModeLayout><TermsPage /></GeekModeLayout>
         }
       } else {
-        return <h1>Intro</h1>
+        return <GeekModeLayout><IntroPage /></GeekModeLayout>
       }
     } else {
       return <LoadingPage />
