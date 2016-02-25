@@ -13,6 +13,11 @@ TermsPage = React.createClass({
 
   acceptTerms() {
     ReactiveStore.set(TERMS_ACCEPTED, true);
+
+    // If got here from development mode
+    var path = FlowRouter.current().path
+    if(path === TERMS_PATH)
+      FlowRouter.go(STATUS_PATH)
   },
 
   rejectTerms() {
@@ -21,7 +26,7 @@ TermsPage = React.createClass({
 
   render() {
     if(this.data.termsRejected) {
-      <div><h1>Terms Rejected</h1></div>
+      return <div><h1>Terms Rejected</h1></div>
     } else {
       return (
         <div className='container'>
@@ -36,7 +41,7 @@ TermsPage = React.createClass({
               </button>
             </div>
             <div className='col-xs-6'>
-              <button className='btn btn-lg btn-danger btn-block'>
+              <button className='btn btn-lg btn-danger btn-block' onClick={this.rejectTerms}>
                 Reject
               </button>
             </div>

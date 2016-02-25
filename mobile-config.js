@@ -1,11 +1,11 @@
 App.info({
   id: 'org.stingraymappingproject.sting_watch',
-  name: 'StingWatch',
-  description: 'StingWatch',
+  name: 'Stingwatch',
+  description: 'Stingwatch',
   author: 'The Stingray Mapping Project',
   email: 'marvin@unplugged.im',
   website: 'https://stingraymappingproject.org',
-  version: '0.0.2'
+  version: '0.0.3'
 });
 
 App.icons({

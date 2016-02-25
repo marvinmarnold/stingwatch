@@ -26,3 +26,4 @@ FlowRouter.route("/intro", {
     });
   },
 })
+INTRO_PATH = FlowRouter.path('intro')

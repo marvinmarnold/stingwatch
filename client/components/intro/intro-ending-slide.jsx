@@ -12,10 +12,12 @@ IntroEndingSlide = React.createClass({
 
   clicked(event) {
     event.preventDefault()
-    console.log('im clicked bitch');
-
     ReactiveStore.set(INTRO_COMPLETED, true)
-    console.log('and i translate ' + Session.get(INTRO_COMPLETED));
+
+    // If got here from development mode
+    var path = FlowRouter.current().path
+    if(path === INTRO_PATH)
+      FlowRouter.go(TERMS_PATH)
   },
 
   copy() {
