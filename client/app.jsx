@@ -10,12 +10,10 @@ App = React.createClass({
       ready: true,
       introCompleted: false,
       termsAccepted: false,
-      geekModeEnabled: false
     };
 
     data.introCompleted = Session.get(INTRO_COMPLETED)
     data.termsAccepted = Session.get(TERMS_ACCEPTED)
-    data.geekModeEnabled = Session.get(GEEK_MODE_ENABLED)
 
     return data;
   },
@@ -30,7 +28,7 @@ App = React.createClass({
     if(this.data.ready) {
       if(this.data.introCompleted) {
         if(this.data.termsAccepted) {
-          return this.props.content;
+          return <GeekModeLayout>{this.props.content}</GeekModeLayout>;
         } else {
           return <TermsPage />
         }

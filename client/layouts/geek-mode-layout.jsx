@@ -2,19 +2,25 @@ GeekModeLayout = React.createClass({
   mixins: [ReactMeteorData],
 
   getMeteorData() {
+    // Session.setDefault(GEEK_MODE_ENABLED, false);
 
     return {
-      introCompleted: Session.get(INTRO_COMPLETED),
-      introScreenNum: Session.get(INTRO_SLIDE_NUM),
+      geekModeEnabled: Session.get(GEEK_MODE_ENABLED)
     };
   },
 
   render() {
-    return (
-      <div>
-        {this.props.children}
-      </div>
-    )
+    if(this.data.geekModeEnabled) {
+      return (
+        <div>
+          {this.props.children}
+          <GeekConsole />
+        </div>
+      )
+
+    } else {
+      return this.props.children
+    }
   }
 
 });
