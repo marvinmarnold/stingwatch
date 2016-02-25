@@ -20,7 +20,6 @@ IntroMiddleSlide = React.createClass({
   },
 
   landscapeClassName() {
-    console.log('intro-' + this.props.page + '-landscape v-middle');
     return 'intro-' + this.props.page + '-landscape v-middle'
   },
 

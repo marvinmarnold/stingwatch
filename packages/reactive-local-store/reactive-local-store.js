@@ -6,7 +6,7 @@ export var ReactiveStore = {};
 
 var _keys = [];
 
-if(Meteor.isClient) {
+if(Meteor.isClient || Meteor.isCordova) {
   _.extend(ReactiveStore, {
     set(key, value) {
       window.localStorage.setItem(key, value);
@@ -16,13 +16,7 @@ if(Meteor.isClient) {
     get(key) {
       var v = Session.get(key);
 
-      // if(v === "true") {
-      //   return true;
-      // } else if(v === "false") {
-      //   return false;
-      // } else {
-        return v;
-      // }
+      return v;
     },
 
     init() {
