@@ -20,6 +20,7 @@ IntroMiddleSlide = React.createClass({
   },
 
   landscapeClassName() {
+    console.log('intro-' + this.props.page + '-landscape v-middle');
     return 'intro-' + this.props.page + '-landscape v-middle'
   },
 
@@ -37,7 +38,7 @@ IntroMiddleSlide = React.createClass({
     )
   },
 
-  render() {
+  portrait() {
     return (
       <Hammer onSwipe={this.swipe} onDoubleTap={this.swipe}>
         <div className={this.portraitClassName()}>
@@ -45,6 +46,20 @@ IntroMiddleSlide = React.createClass({
         </div>
       </Hammer>
     )
+  },
+
+  landscape() {
+    return (
+      <Hammer onSwipe={this.swipe} onDoubleTap={this.swipe}>
+        <div className={this.landscapeClassName()}>
+          {this.textDiv()}
+        </div>
+      </Hammer>
+    )
+  },
+
+  render() {
+    return <OrientationResponsiveLayout landscape={this.landscape()} portrait={this.portrait()} />
   }
 })
 

@@ -10,19 +10,19 @@ IntroWelcomeSlide = React.createClass({
   },
 
   copy() {
-    return "Thank you for downloading StingWatch. Please swipe through the following screens to learn how and why to use this app."
+    return "Thank you for downloading " + APP_NAME + ". Please swipe through the following screens to learn how and why to use this app."
   },
 
   render() {
-      return (
-        <Hammer onSwipe={this.swipe} onDoubleTap={this.swipe}>
-          <div className="container p-t-2 p-b-1 text-xs-center loading">
-            <h1>Stingwatch</h1>
-            <img src="logo.gif" className='img-fluid simple-logo m-y-2 center-block'></img>
-            <h3>{this.copy()}</h3>
-          </div>
-        </Hammer>
-      )
+    return (
+      <Hammer onSwipe={this.swipe} onDoubleTap={this.swipe}>
+        <div className="container p-t-2 p-b-1 text-xs-center loading">
+          <h1>{APP_NAME}</h1>
+          <img src="logo.gif" className='img-fluid simple-logo m-y-2 center-block'></img>
+          <h3>{this.copy()}</h3>
+        </div>
+      </Hammer>
+    )
   }
 
 });

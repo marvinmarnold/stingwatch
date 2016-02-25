@@ -1,6 +1,6 @@
 @mixin bg-img($name, $path) {
   #{$name} {
-    height: 100%;
+    min-height: 100%;
     background-size:   cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -9,7 +9,7 @@
 }
 
 @include bg-img('.intro-2-portrait', "/intro-slides/nopd-portrait.jpg");
-@include bg-img('.intro-2-landscape', "/intro-slides/nopd-landscape.jpg");
+@include bg-img('.intro-2-landscape', "/intro-slides/nopd-portrait.jpg");
 
 @include bg-img('.intro-3-portrait', "/intro-slides/stingray-portrait.jpg");
 @include bg-img('.intro-3-landscape', "/intro-slides/stingray-landscape.jpg");

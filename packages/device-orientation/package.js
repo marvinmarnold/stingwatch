@@ -13,8 +13,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.3-beta.11');
   api.use(['ecmascript', 'underscore', 'session']);
-  api.mainModule('device-orientation.js', 'client');
-  api.mainModule('device-orientation-cordova.js', 'web.cordova');
+  api.mainModule('device-orientation.js', ['client', 'web.cordova', 'web.browser']);
 });
 
 Package.onTest(function(api) {

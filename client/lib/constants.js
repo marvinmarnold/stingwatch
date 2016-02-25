@@ -10,3 +10,5 @@ GEEK_MODE_ENABLED = 'geek-mode-enabled'
 STATUS = 'status'
 STATUS_WATCHING = 'status-watching'
 STATUS_DANGER = 'status-danger'
+
+APP_NAME = "Stingwatch"
