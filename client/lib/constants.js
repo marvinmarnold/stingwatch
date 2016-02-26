@@ -12,3 +12,5 @@ STATUS_WATCHING = 'status-watching'
 STATUS_DANGER = 'status-danger'
 
 APP_NAME = "Stingwatch"
+
+TRIGGER_ALARM = 'trigger-alarm'

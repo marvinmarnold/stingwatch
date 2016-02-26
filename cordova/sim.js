@@ -1,5 +1,5 @@
-var refreshPeriod = 5 * 60 * 60 * 1000 // 5 minute
-// var refreshPeriod = 3 * 1000 // 3 seconds
+// var refreshPeriod = 5 * 60 * 60 * 1000 // 5 minute
+var refreshPeriod = 3 * 1000 // 3 seconds
 
 if(Meteor.isCordova) {
   Meteor.startup(function () {

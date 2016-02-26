@@ -24,3 +24,4 @@ App.accessRule('http://*.mapbox.com');
 App.accessRule('https://stingraymappingproject.org');
 App.accessRule('https://stingraymappingproject.meteor.com');
 App.accessRule('https://stingwatch.meteor.com');
+App.accessRule('https://marvin.meteor.com');

@@ -9,6 +9,9 @@ GeekConsole = React.createClass({
     Session.set(STATUS, STATUS_DANGER)
     Session.set(INTRO_COMPLETED, true)
     Session.set(TERMS_ACCEPTED, true)
+    Session.set(TRIGGER_ALARM, true)
+    console.log("set alarm to " + Session.get(TRIGGER_ALARM));
+
   },
 
   intro() {

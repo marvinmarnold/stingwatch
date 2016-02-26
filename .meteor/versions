@@ -18,6 +18,7 @@ callback-hook@1.0.5-beta.11
 check@1.1.1-beta.11
 coffeescript@1.0.12-beta.11
 cosmos:browserify@0.9.4
+crosswalk@1.4.0-beta.11
 ddp@1.2.2
 ddp-client@1.2.2-beta.11
 ddp-common@1.2.2

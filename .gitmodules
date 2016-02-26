@@ -13,3 +13,6 @@
 [submodule "packages/cordova-plugin-background-notification"]
 	path = packages/cordova-plugin-background-notification
 	url = git@github.com:christocracy/cordova-plugin-background-notification.git
+[submodule "packages/LocalNotification"]
+	path = packages/LocalNotification
+	url = git@github.com:Telerik-Verified-Plugins/LocalNotification.git
