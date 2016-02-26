@@ -80,7 +80,7 @@ if(Meteor.isCordova) {
       psc: parseInt(result.psc) || -1,
       latitude: pos.coords.latitude || -1,
       longitude: pos.coords.longitude || -1,
-      signalStrengthDBM: parseInt(result.signalStrengthDBM) || -1
+      signalStrengthDBM: parseInt(result.signalStrength) || -1
     }
 
     console.log('about to insert');
