@@ -2,9 +2,9 @@ if(Meteor.isCordova) {
   Meteor.startup(function() {
     Tracker.autorun(function() {
       if(Session.get(TRIGGER_ALARM)) {
-        // navigator.vibrate([3000, 1000, 1000, 4000])
+        navigator.vibrate([3000, 1000, 1000, 4000])
 
-        // navigator.notification.beep(1);
+        navigator.notification.beep(1);
 
         // cordova.plugins.notification.local.schedule({
         //   id         : 1,

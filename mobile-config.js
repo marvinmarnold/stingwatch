@@ -25,3 +25,12 @@ App.accessRule('https://stingraymappingproject.org');
 App.accessRule('https://stingraymappingproject.meteor.com');
 App.accessRule('https://stingwatch.meteor.com');
 App.accessRule('https://marvin.meteor.com');
+
+App.launchScreens({
+  android_mdpi_portrait: 'public/splash/screen.png',
+  android_mdpi_landscape: 'public/splash/screen-land.png',
+  android_hdpi_portrait: 'public/splash/screen.png',
+  android_hdpi_landscape: 'public/splash/screen-land.png',
+  android_xhdpi_portrait: 'public/splash/screen.png',
+  android_xhdpi_landscape: 'public/splash/screen-land.png'
+})
