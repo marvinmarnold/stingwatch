@@ -1,4 +1,12 @@
 GeekConsole = React.createClass({
+  mixins: [ReactMeteorData],
+
+  getMeteorData() {
+    return {
+      deviceId: DeviceId.get()
+    }
+  },
+
   watch() {
     Session.set(STATUS, STATUS_WATCHING)
     Session.set(INTRO_COMPLETED, true)
@@ -30,6 +38,7 @@ GeekConsole = React.createClass({
   render() {
     return (
       <div>
+        <h4>Your Device ID is <strong>{this.data.deviceId}</strong></h4>
         <ul>
           <li><a href={INTRO_PATH} className='btn btn-link btn-sm' onClick={this.intro}>Intro Slides</a></li>
 

@@ -29,6 +29,7 @@ ecmascript-runtime@0.2.7-beta.11
 ejson@1.0.8-beta.11
 es5-shim@4.3.2-beta.11
 fastclick@1.0.8-beta.11
+force-ssl@1.0.8-beta.11
 fortawesome:fontawesome@4.5.0
 fourseven:scss@3.4.1
 geojson-utils@1.0.5-beta.11

@@ -29,3 +29,4 @@ device-orientation
 marvin:imsi-catcher-catcher
 marvin:device-id
 marvin:crosswalk
+force-ssl
