@@ -13,6 +13,12 @@ Ultimately, this technology is just a tool for greater policy change.
 We intend to prove that stingray technology is often misused to disproportionately target certain minority groups and other civil groups.
 We hope this information will reinforce the larger debate around these devices and ultimately lead to their abolition. Shortly, we will relaunch stingraymappingproject.org as the umbrella organization to address these issues so that this repo and StingWatch can focus on technology.
 
+# Related Projects
+ - [meteor-imsi-catcher-catcher](https://github.com/marvinmarnold/meteor-imsi-catcher-catcher): Meteor plugin to store and analyze telephony readings for Stingray activity
+ - [meteor-imsi-catcher-catcher-secrets](https://github.com/marvinmarnold/meteor-imsi-catcher-catcher-secrets) - Meteor plugin for a password protected admin view to explore non-public readings
+ - [cordova-plugin-telephony](https://github.com/marvinmarnold/cordova-plugin-telephony): cordova plugin to get Telephony information from Android and pass to webapp
+ - [stingraymappingproject.org](https://github.com/marvinmarnold/stingraymappingproject.org): source code for public website
+
 # Development Plan
 It's not yet clear if StingWatch will be a single codebase or, more likely, a platform that supports various platforms.
 At this point, there is a three phased development plan.
