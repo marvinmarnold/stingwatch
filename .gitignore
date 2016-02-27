@@ -2,5 +2,4 @@
 .meteor/meteorite
 scripts
 settings
-packages/cordova-plugin-telephony
 packages/meteor-imsi-catcher-catcher

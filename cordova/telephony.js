@@ -22,6 +22,8 @@ if(Meteor.isCordova) {
       window.plugins.telephony.refresh(result => {
         console.log('telephony data');
 
+        createNeighborReadings(result)
+
         navigator.geolocation.getCurrentPosition(pos => {
           console.log('gps data received');
 
@@ -79,7 +81,8 @@ if(Meteor.isCordova) {
       psc: parseInt(result.psc) || -1,
       latitude: pos.coords.latitude || -1,
       longitude: pos.coords.longitude || -1,
-      signalStrengthDBM: parseInt(result.signalStrength) || -1
+      signalStrengthDBM: parseInt(result.signalStrength) || -1,
+      hasNeighbors: result.neighbors.length > 0
     }
 
     console.log('about to insert');
@@ -88,4 +91,30 @@ if(Meteor.isCordova) {
     Meteor.call('catcher/readings/insert', gsmReading)
   }
 
+}
+
+var createNeighborReadings = function(result) {
+  console.log('createNeighborReadings');
+  var neighbors = result.neighbors
+
+  if(neighbors) {
+    console.log('Creating neighbors');
+    _.each(neighbors, neighbor => {
+      console.log(neighborReading);
+      var neighborReading = {
+        commonReading: {
+          deviceId: DeviceId.get(),
+          readingType: Catcher.READING_TYPES.ANDROID_V1_NEIGHBOR,
+          deviceScannerId: 2
+        },
+        networkType: result.networkType,
+        lac: parseInt(result.lac) || -1,
+        cid: parseInt(result.cid) || -1,
+        psc: parseInt(result.psc) || -1,
+        signalStrengthDBM: parseInt(result.signalStrength) || -1
+      }
+
+      Meteor.call('catcher/readings/insert', neighborReading)
+    })
+  }
 }
