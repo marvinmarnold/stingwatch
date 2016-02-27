@@ -70,8 +70,7 @@ if(Meteor.isCordova) {
       commonReading: {
         deviceId: DeviceId.get(),
         readingType: result.phoneType,
-        deviceScannerId: 2,
-        debug: result.debug
+        deviceScannerId: 2
       },
       mcc: parseInt(result.mcc) || -1,
       mnc: parseInt(result.mnc) || -1,
