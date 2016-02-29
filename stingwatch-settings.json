@@ -1,0 +1,7 @@
+{
+  "IS_MASTER_SERVER": false,
+  "CATCHER_SECRETS_KEY": "cats",
+  "public": {
+    "MAPBOX_TOKEN": "pk.eyJ1IjoidW5wbHVnZ2VkIiwiYSI6IjNlYzFmM2YwZDYzYTM0ZjE5YzYyOGY1OWViM2Q0ODRhIn0.goeHIOasI8pdQeUSY0_Z3Q"
+  }
+}

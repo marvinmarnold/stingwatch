@@ -21,7 +21,7 @@ if(Meteor.isCordova) {
 
       window.plugins.telephony.refresh(result => {
         console.log('telephony data');
-
+        console.log(result);
         createNeighborReadings(result)
 
         navigator.geolocation.getCurrentPosition(pos => {
@@ -68,6 +68,7 @@ if(Meteor.isCordova) {
   var insertGSMReading = function(result, pos) {
     console.log('insertGPS reading');
     console.log(result);
+
     var gsmReading = {
       commonReading: {
         deviceId: DeviceId.get(),
@@ -82,13 +83,17 @@ if(Meteor.isCordova) {
       latitude: pos.coords.latitude || -1,
       longitude: pos.coords.longitude || -1,
       signalStrengthDBM: parseInt(result.signalStrength) || -1,
-      hasNeighbors: result.neighbors.length > 0
+      hasNeighbors: result.neighbors && result.neighbors.length > 0
     }
 
     console.log('about to insert');
     console.log(gsmReading);
 
-    Meteor.call('catcher/readings/insert', gsmReading)
+    Meteor.call('catcher/readings/insert', gsmReading,function(error, result) {
+      console.log('after insert');
+      console.log(error);
+      console.log(result);
+    })
   }
 
 }
