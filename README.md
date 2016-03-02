@@ -30,6 +30,7 @@ This will include:
 - Changing LAC/MNC/MCC
 - Unknown Cell ID
 - Empty nearest neighbors list
+- Downgrade to 2G connection
 - Increasing signal strength
 
 Although Meteor + Cordova may complicate things in the short term, they will ultimately help improve our reach as we can target more devices with less effort.
