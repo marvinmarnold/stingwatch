@@ -48,7 +48,6 @@ logging@1.0.9-beta.11
 marvin:crosswalk@1.5.0
 marvin:device-id@0.0.1
 marvin:imsi-catcher-catcher@0.0.1
-marvin:imsi-catcher-catcher-secrets@0.0.1
 matb33:collection-hooks@0.8.1
 mdg:validation-error@0.2.0
 meteor@1.1.11-beta.11
@@ -62,7 +61,6 @@ mobile-experience@1.0.1
 mobile-status-bar@1.0.8-beta.11
 modules@0.5.0-beta.11
 modules-runtime@0.5.0-beta.11
-momentjs:moment@2.11.2
 mongo@1.1.4-beta.11
 mongo-id@1.0.1
 npm-mongo@1.4.40-beta.11

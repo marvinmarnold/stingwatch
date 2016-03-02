@@ -1,7 +1,20 @@
-#dangerMap {
-  height: 10rem;
+/*#dangerMap {
+  height: 12rem;
 }
 
 .watching-logo {
   height: 9rem;
+}*/
+
+.main-action {
+  height: 12rem;
+}
+
+.main-action-watching {
+  background-image: url("/status/nola.jpg");
+  background-size:   cover;                      /* <------ */
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding: 0 !important;
+  margin: 0 !important;
 }

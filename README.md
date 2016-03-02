@@ -83,3 +83,9 @@ https://forums.meteor.com/t/is-ddp-working-when-mobile-client-offline-or-running
 com.synconset.cordovaHTTP@file://packages/cordova-HTTP
 
 Catcher.Detections.insert({basestationId: 'asdf', detectorName: 'asdf', score: 12, message: '123'})
+
+EACCESS issue
+https://github.com/meteor/meteor/issues/2690
+
+Cordova build issue
+http://stackoverflow.com/questions/35442715/cordova-build-could-not-resolve-com-android-tools-buildgradle1-5-0?lq=1
