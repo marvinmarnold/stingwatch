@@ -37,7 +37,7 @@ Although Meteor + Cordova may complicate things in the short term, they will ult
 Also by packaging the technology as a web app, we can avoid wasting efforts on complicated native UI development and database adapters.
 
 Dependencies also under development:
- - [meteor-imsi-catcher](https://github.com/marvinmarnold/meteor-imsi-catcher) - hardware agnostic detection.
+ - [meteor-imsi-catcher-catcher](https://github.com/marvinmarnold/meteor-imsi-catcher) - hardware agnostic detection.
  - [cordova-plugin-telephony](https://github.com/marvinmarnold/cordova-plugin-telephony) - pull telephony information from phone.
 
 ## Phase 2: API access to data
