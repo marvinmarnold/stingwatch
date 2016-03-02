@@ -10,16 +10,25 @@ IntroWelcomeSlide = React.createClass({
   },
 
   copy() {
-    return "Thank you for downloading " + APP_NAME + ". Please swipe through the following screens to learn how and why to use this app."
+    return "Welcome to " + APP_NAME + "! Swipe to get started."
   },
 
   render() {
     return (
       <Hammer onSwipe={this.swipe} onDoubleTap={this.swipe}>
-        <div className="container p-t-2 p-b-1 text-xs-center loading">
-          <h1>{APP_NAME}</h1>
-          <img src="logo.gif" className='img-fluid simple-logo m-y-2 center-block'></img>
-          <h3>{this.copy()}</h3>
+        <div className='v-middle'>
+          <div className='container'>
+            <div className="row p-t-3">
+              <div className='col-xs-12'>
+                <img src="logo.gif" className='img-fluid simple-logo m-y-3 center-block'></img>
+              </div>
+            </div>
+            <div className="row m-b-2">
+              <div className='col-xs-10 offset-xs-1'>
+                <h3 className='text-xs-center'>{this.copy()}</h3>
+              </div>
+            </div>
+          </div>
         </div>
       </Hammer>
     )

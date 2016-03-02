@@ -21,7 +21,7 @@ IntroEndingSlide = React.createClass({
   },
 
   copy() {
-    return "By using Stingwatch, you will be helping to fight back increased surveillance by contributing data with the ultimate goal of avoiding the surveillance state."
+    return "StingWatch is fighting back. Help us to expose unconstitutional police surveillance."
   },
 
   textDiv() {
@@ -43,7 +43,7 @@ IntroEndingSlide = React.createClass({
   portrait() {
     return (
       <Hammer onSwipe={this.swipe}>
-        <div className='intro-ending-portrait'>
+        <div className='intro-ending-portrait v-middle'>
           <div className='container'>
             <div className="row p-t-2">
               <div className='col-xs-12'>
@@ -64,7 +64,7 @@ IntroEndingSlide = React.createClass({
   landscape() {
     return (
       <Hammer onSwipe={this.swipe}>
-        <div className='intro-ending-landscape'>
+        <div className='intro-ending-landscape v-middle'>
           <div className='container'>
             <div className="row p-t-2">
               <div className='col-xs-12'>

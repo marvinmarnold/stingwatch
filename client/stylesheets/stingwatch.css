@@ -1,5 +1,12 @@
 html, body, #react-root {
   height: 100%;
+  padding: 0 !important;
+  margin: 0 !important;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
 }
 
 .center-block {
@@ -14,4 +21,15 @@ html, body, #react-root {
 
 .simple-logo {
   max-height: 15rem;
+}
+
+.v-center {
+  position: relative;
+}
+
+div.v-center .v-centered {
+  margin: 0;
+  position: absolute;               /* 2 */
+  top: 50%;                         /* 3 */
+  transform: translate(0, -50%) }   /* 4 */
 }

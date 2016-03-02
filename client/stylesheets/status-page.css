@@ -7,7 +7,7 @@
 }*/
 
 .main-action {
-  height: 12rem;
+  height: 20rem;
 }
 
 .main-action-watching {
@@ -17,4 +17,18 @@
   background-position: center center;
   padding: 0 !important;
   margin: 0 !important;
+}
+
+.main-action-watching-subtitle {
+  color: #fff;
+}
+
+.main-action-radar {
+  max-height: 12rem;
+}
+
+.title-bar {
+  height: 4rem;
+  display: inline-block;
+  vertical-align: middle;
 }

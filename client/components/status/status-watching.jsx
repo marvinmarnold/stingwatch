@@ -15,16 +15,26 @@ StatusWatching = React.createClass({
 
   render() {
     return (
-      <div className="container p-y-2">
-        <div className='main-action main-action-watching'>
+      <div className="container">
+        <div className='main-action main-action-watching text-xs-center'>
+          <div className="row">
+            <div className='col-xs-6 offset-xs-3 p-y-2'>
+              <img className="img-fluid main-action-radar center-block" src="status/radar.gif" />
+            </div>
+          </div>
+          <div clasName="row">
+            <div className='col-xs-12'>
+              <h1 className="main-action-watching-subtitle p-b-1">
+                Working...
+              </h1>
+            </div>
+          </div>
 
         </div>
 
-        <Factoid></Factoid>
+        <div className='p-x-2'><Factoid /></div>
 
-        <hr/>
-
-        <div className="row m-t-2">
+        <div className="row m-t-3">
           <div className="col-xs-6">
             <LearnButton />
           </div>

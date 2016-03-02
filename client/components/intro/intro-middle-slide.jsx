@@ -63,8 +63,5 @@ IntroMiddleSlide = React.createClass({
 })
 
 var copyList = [
-  "For years, police have been listening to our calls and reading our text messages with little oversight and even less public scrutiny.",
-  "Stingrays are portable devices that simulate cell phone towers, forcing nearby phones to connect to them.",
-  "Stingrays can capture information from all cell phones within range including identity, location, SMS, call logs, and call content.",
-  "Increased use at black rights stuff."
+  "For years, a device called a Stingray has allowed police to listen to our calls and read our text messages without search warrants."
 ]
