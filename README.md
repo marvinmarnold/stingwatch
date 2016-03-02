@@ -27,8 +27,10 @@ At this point, there is a three phased development plan.
 Using Meteor and by exposing Telephony data over Cordova plugins, StingWatch can do basic GSM stingray detection.
 Like most existing IMSI-catcher applications, we will use a heuristic scoring algorithm to measure threat level.
 This will include:
-- changing LAC/MNC/MCC
+- Changing LAC/MNC/MCC
+- Unknown Cell ID
 - Empty nearest neighbors list
+- Increasing signal strength
 
 Although Meteor + Cordova may complicate things in the short term, they will ultimately help improve our reach as we can target more devices with less effort.
 Also by packaging the technology as a web app, we can avoid wasting efforts on complicated native UI development and database adapters.
