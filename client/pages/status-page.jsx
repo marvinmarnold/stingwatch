@@ -18,8 +18,8 @@ StatusPage = React.createClass({
   render() {
     if(this.data.detectionStatus === STATUS_WATCHING) {
       return <StatusLayout><StatusWatching /></StatusLayout>
-    } else if(this.data.detectionStatus === STATUS_DANGER) {
-      return <StatusLayout><StatusWatching /></StatusLayout>
+    } else if (this.data.detectionStatus === STATUS_DANGER) {
+      return <StatusLayout><StatusDanger /></StatusLayout>
     }
   }
 

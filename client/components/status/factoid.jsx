@@ -16,7 +16,7 @@ Factoid = React.createClass({
     // } else {
 
       return (
-        <div className='m-t-1'>
+        <div>
           <h4>Stingray Facts and Tips</h4>
           <p>{this.data.factoid}</p>
         </div>

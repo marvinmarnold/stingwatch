@@ -5,3 +5,4 @@ settings
 packages/meteor-imsi-catcher-catcher
 feedback.txt
 packages/device-id
+*settings.json

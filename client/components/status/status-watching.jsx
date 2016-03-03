@@ -32,17 +32,10 @@ StatusWatching = React.createClass({
 
         </div>
 
-        <div className='p-x-2'><Factoid /></div>
+        <div className='p-a-2'><Factoid /></div>
 
-        <div className="row m-t-3">
-          <div className="col-xs-6">
-            <LearnButton />
-          </div>
-          <div className="col-xs-6">
-            <button className="btn btn-primary btn-lg btn-block">
-              <i className="fa fa-twitter"></i>&nbsp;&nbsp;Share
-            </button>
-          </div>
+        <div className="m-t-1">
+          <LearnButton />
         </div>
       </div>
     )

@@ -14,3 +14,5 @@ STATUS_DANGER = 'status-danger'
 APP_NAME = "StingWatch"
 
 TRIGGER_ALARM = 'trigger-alarm'
+
+COMPOSING_TWEET = 'compose-tweet'
