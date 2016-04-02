@@ -1,8 +1,1 @@
-.meteor/local
-.meteor/meteorite
-scripts
-settings
-packages/meteor-imsi-catcher-catcher
-feedback.txt
-packages/device-id
-*settings.json
+node_modules/

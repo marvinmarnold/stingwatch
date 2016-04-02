@@ -1,7 +1,0 @@
-cdvVersionCode = '5'
-android {
-  lintOptions {
-    disable 'MissingTranslation'
-    disable 'ExtraTranslation'
-  }  
-}
