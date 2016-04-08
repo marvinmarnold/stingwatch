@@ -59,6 +59,7 @@ standard-minifier-js@1.0.5
 static-html@1.0.6
 templating-tools@1.0.3
 tracker@1.0.12
+twbs:bootstrap@4.0.0-alpha.2
 ui@1.0.10
 underscore@1.0.7
 url@1.0.8
