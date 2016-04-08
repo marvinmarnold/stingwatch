@@ -1,10 +1,12 @@
 import React from 'react';
+import NavBar from './NavBar.jsx';
 
 export default class StatusPage extends React.Component {
   render() {
     return (
-      <div className="container-fluid">
-        <p className="text-xs-center">hi</p>
+      <div>
+        <NavBar />
+        <img id="status_scanning-map" className="img-fluid" src="nola.jpg" />
       </div>
     );
   }

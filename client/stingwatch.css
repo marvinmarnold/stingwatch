@@ -1,0 +1,9 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#status_scanning-map {
+  width: 100%;
+}

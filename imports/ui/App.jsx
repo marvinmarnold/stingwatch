@@ -5,7 +5,3 @@ export default class App extends React.Component {
     return this.props.children;
   }
 }
-
-App.propTypes = {
-  children: React.PropTypes.object,
-};
