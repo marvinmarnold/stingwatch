@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from './NavBar.jsx';
+import TweetButton from './TweetButton.jsx';
 
 export default class StatusPage extends React.Component {
   render() {
@@ -7,6 +8,7 @@ export default class StatusPage extends React.Component {
       <div>
         <NavBar />
         <img id="status_scanning-map" className="img-fluid" src="nola.jpg" />
+        <TweetButton />
       </div>
     );
   }

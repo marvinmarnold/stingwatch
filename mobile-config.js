@@ -34,3 +34,7 @@ App.launchScreens({
   android_xhdpi_portrait: 'public/splash/screen.png',
   android_xhdpi_landscape: 'public/splash/screen-land.png',
 });
+
+App.setPreference('BackgroundColor', '0xff0000ff');
+App.setPreference('Orientation', 'default');
+App.setPreference('Orientation', 'all', 'ios');

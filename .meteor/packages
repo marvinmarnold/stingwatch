@@ -18,3 +18,5 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 static-html
 twbs:bootstrap
 crosswalk
+accounts-twitter
+service-configuration
