@@ -57,6 +57,7 @@ ordered-dict@1.0.6
 promise@0.6.6
 random@1.0.8
 rate-limit@1.0.3
+react-meteor-data@0.2.8
 reactive-var@1.0.8
 reload@1.1.7
 retry@1.0.6
@@ -69,6 +70,7 @@ standard-minifier-js@1.0.5
 static-html@1.0.6
 templating@1.1.8
 templating-tools@1.0.3
+tmeasday:check-npm-versions@0.2.0
 tracker@1.0.12
 twbs:bootstrap@4.0.0-alpha.2
 twitter@1.1.8

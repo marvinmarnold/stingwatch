@@ -10,14 +10,38 @@ export default class StatusPage extends React.Component {
 
     this.state = {
       status: STATUSES.SCANNING,
+      composingTweet: false
     };
   }
 
-  render() {
+  setComposingTweet(isComposing) {
+    console.log('back to parent');
+    this.setState({composingTweet: isComposing})
+  }
+
+  renderStatus() {
     if (this.state.status === STATUSES.SCANNING) {
-      return <StatusScanning />;
+      return <StatusScanning setComposingTweet={this.setComposingTweet.bind(this)} />;
     } else {
       return <p>fail</p>;
+    }
+  }
+
+  cancelComposingTweet() {
+    this.setComposingTweet(false);
+  }
+
+  render() {
+    if(this.state.composingTweet) {
+      return (
+        <div>
+          <h1>Composing</h1>
+          <button class="btn">Tweet</button>
+          <button class="btn btn-danger" onClick={this.cancelComposingTweet.bind(this)}>Back</button>
+        </div>
+      )
+    } else {
+      return this.renderStatus();
     }
   }
 }
