@@ -10,7 +10,8 @@
     "react": "^15.0.1",
     "react-addons-pure-render-mixin": "^15.0.1",
     "react-dom": "^15.0.1",
-    "react-router": "^2.0.1"
+    "react-router": "^2.0.1",
+    "twitter": "^1.2.5"
   },
   "devDependencies": {
     "eslint": "^2.6.0",

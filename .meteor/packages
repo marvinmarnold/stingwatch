@@ -21,3 +21,5 @@ crosswalk
 accounts-twitter
 service-configuration
 react-meteor-data
+aldeed:simple-schema
+fortawesome:fontawesome

@@ -3,6 +3,7 @@ import React from 'react';
 import { STATUSES } from '../../globals.js';
 
 import StatusScanning from '../components/StatusScanning.jsx';
+import TweetComposer from '../components/TweetComposer.jsx';
 
 export default class StatusPage extends React.Component {
   constructor(props) {
@@ -15,7 +16,6 @@ export default class StatusPage extends React.Component {
   }
 
   setComposingTweet(isComposing) {
-    console.log('back to parent');
     this.setState({composingTweet: isComposing})
   }
 
@@ -23,23 +23,17 @@ export default class StatusPage extends React.Component {
     if (this.state.status === STATUSES.SCANNING) {
       return <StatusScanning setComposingTweet={this.setComposingTweet.bind(this)} />;
     } else {
-      return <p>fail</p>;
+      return <p>pages/StatusDanger.jsx goes here</p>;
     }
-  }
-
-  cancelComposingTweet() {
-    this.setComposingTweet(false);
   }
 
   render() {
     if(this.state.composingTweet) {
       return (
-        <div>
-          <h1>Composing</h1>
-          <button class="btn">Tweet</button>
-          <button class="btn btn-danger" onClick={this.cancelComposingTweet.bind(this)}>Back</button>
-        </div>
-      )
+        <TweetComposer
+        status={this.state.status}
+        setComposingTweet={this.setComposingTweet.bind(this)} />
+      );
     } else {
       return this.renderStatus();
     }

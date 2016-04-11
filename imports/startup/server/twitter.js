@@ -4,8 +4,8 @@ Meteor.startup(function() {
   });
   ServiceConfiguration.configurations.insert({
     service: "twitter",
-    consumerKey: Meteor.settings.public.TWITTER_KEY,
+    consumerKey: Meteor.settings.public.TWITTER_CONSUMER_KEY,
     loginStyle: "popup",
-    secret: Meteor.settings.TWITTER_SECRET
+    secret: Meteor.settings.TWITTER_CONSUMER_SECRET
   });
 })
