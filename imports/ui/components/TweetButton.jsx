@@ -19,7 +19,11 @@ export default class TweetButton extends React.Component {
       onClick = this.login;
     }
 
-    return <a onClick={onClick.bind(this)} className="button">Tweet</a>;
+    return (
+      <button onClick={onClick.bind(this)} className="btn btn-primary btn-lg">
+        <i className='fa fa-twitter'></i>&nbsp;&nbsp;Share
+      </button>
+    );
   }
 };
 
