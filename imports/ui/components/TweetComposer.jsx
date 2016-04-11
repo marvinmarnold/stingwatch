@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createContainer } from 'meteor/react-meteor-data';
@@ -19,12 +20,22 @@ export default class TweetComposer extends React.Component {
   }
 
   tweet() {
+    const thiz = this;
+    thiz.handleKeyUp();
 
+    if(thiz.state.charactersRemaining >= 0) {
+      Meteor.call('twitter.tweet', thiz.tweetText(), (error, response) => {
+        if(error) {
+          console.log('tweet failed');
+          console.log(error);
+        } else {
+          thiz.cancelComposingTweet();
+        }
+      })
+    }
   }
 
   defaultTweet() {
-
-    console.log('getting default tweet');
     return (this.props.status == STATUSES.SCANNING) ? DEFAULT_TWEETS.SCANNING : DEFAULT_TWEETS.DANGER;
   }
 
@@ -32,9 +43,12 @@ export default class TweetComposer extends React.Component {
     this.props.setComposingTweet(false);
   }
 
+  tweetText() {
+    return ReactDOM.findDOMNode(this.refs.tweetTextArea).value.trim();
+  }
+
   handleKeyUp() {
-    const tweet = ReactDOM.findDOMNode(this.refs.tweetTextArea).value.trim();
-    this.setState({charactersRemaining: (140 - tweet.length)});
+    this.setState({charactersRemaining: (140 - this.tweetText().length)});
   }
 
   render() {
@@ -55,11 +69,13 @@ export default class TweetComposer extends React.Component {
 
         <button className="btn btn-primary btn-lg"
           onClick={this.tweet.bind(this)}>
+
           <i className='fa fa-twitter'></i>&nbsp;&nbsp;Tweet
         </button>
 
         <button className="btn btn-outline-secondary btn-lg"
           onClick={this.cancelComposingTweet.bind(this)}>
+
           Back
         </button>
       </div>

@@ -16,6 +16,7 @@ export default class StatusPage extends React.Component {
   }
 
   setComposingTweet(isComposing) {
+    console.log('isComposingTweet: ' + isComposing);
     this.setState({composingTweet: isComposing})
   }
 

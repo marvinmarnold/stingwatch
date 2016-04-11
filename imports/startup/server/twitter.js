@@ -2,6 +2,7 @@ Meteor.startup(function() {
   ServiceConfiguration.configurations.remove({
     service: "twitter"
   });
+  
   ServiceConfiguration.configurations.insert({
     service: "twitter",
     consumerKey: Meteor.settings.public.TWITTER_CONSUMER_KEY,

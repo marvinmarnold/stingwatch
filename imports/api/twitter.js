@@ -26,9 +26,10 @@ Meteor.methods({
 
     // Post new tweet
     twitterClient.post('statuses/update', {status: message},  function(error, tweet, response) {
-      if(error) throw error;
-      console.log(tweet);  // Tweet body.
-      console.log(response);  // Raw response object.
+      if(error) {
+        throw new Meteor.Error('twitter.tweet.failure',
+          error.message);
+      }
     });
 
   }
