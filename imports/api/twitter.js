@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import Twitter from 'twitter';
 
 Meteor.methods({
-  'twitter.tweet': function(message) {
+  'twitter.tweet'(message) {
     // Message must be a String
     new SimpleSchema({
       message: { type: String },
@@ -16,21 +16,21 @@ Meteor.methods({
 
     // Put together consumer keys (registered to app), and
     // access keys (from user's account)
-    var twitterParams = Meteor.user().services.twitter;
-    var twitterClient = new Twitter({
+    const twitterParams = Meteor.user().services.twitter;
+    const twitterClient = new Twitter({
       consumer_key: Meteor.settings.public.TWITTER_CONSUMER_KEY,
       consumer_secret: Meteor.settings.TWITTER_CONSUMER_SECRET,
       access_token_key: twitterParams.accessToken,
-      access_token_secret: twitterParams.accessTokenSecret
+      access_token_secret: twitterParams.accessTokenSecret,
     });
 
     // Post new tweet
-    twitterClient.post('statuses/update', {status: message},  function(error, tweet, response) {
-      if(error) {
-        throw new Meteor.Error('twitter.tweet.failure',
+    twitterClient.post('statuses/update', { status: message },
+      function(error, tweet, response) {
+        if (error) {
+          throw new Meteor.Error('twitter.tweet.failure',
           error.message);
-      }
-    });
-
-  }
+        }
+      });
+  },
 });
