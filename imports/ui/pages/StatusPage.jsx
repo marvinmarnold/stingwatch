@@ -16,13 +16,16 @@ export default class StatusPage extends React.Component {
   }
 
   setComposingTweet(isComposing) {
-    console.log('isComposingTweet: ' + isComposing);
     this.setState({composingTweet: isComposing})
   }
 
   renderStatus() {
     if (this.state.status === STATUSES.SCANNING) {
-      return <StatusScanning setComposingTweet={this.setComposingTweet.bind(this)} />;
+      return (
+        <StatusScanning
+          setComposingTweet={this.setComposingTweet.bind(this)}
+          toggleGeekMode={this.props.toggleGeekMode} />
+      );
     } else {
       return <p>pages/StatusDanger.jsx goes here</p>;
     }

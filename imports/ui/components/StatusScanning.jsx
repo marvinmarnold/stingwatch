@@ -5,15 +5,10 @@ import NavBar from './NavBar.jsx';
 import TweetButton from './TweetButton.jsx';
 
 export default class StatusPage extends React.Component {
-  toggleGeekMode() {
-    const geekModeEnabled = this.state.geekModeEnabled;
-    this.setState({ geekModeEnabled: !geekModeEnabled });
-  }
-
   render() {
     return (
       <div>
-        <NavBar toggleGeekMode={this.state.geekModeEnabled} />
+        <NavBar toggleGeekMode={this.props.toggleGeekMode} />
         <img id="status_scanning-map" className="img-fluid" src="nola.jpg" />
         <div className="container">
           <Factoid />
