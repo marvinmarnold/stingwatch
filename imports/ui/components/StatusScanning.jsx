@@ -2,19 +2,15 @@ import React from 'react';
 import Factoid from './Factoid.jsx';
 import LearnButton from './LearnButton.jsx';
 import NavBar from './NavBar.jsx';
+import Radar from './Radar.jsx';
 import TweetButton from './TweetButton.jsx';
 
 export default class StatusPage extends React.Component {
-  toggleGeekMode() {
-    const geekModeEnabled = this.state.geekModeEnabled;
-    this.setState({ geekModeEnabled: !geekModeEnabled });
-  }
-
   render() {
     return (
       <div>
-        <NavBar toggleGeekMode={this.state.geekModeEnabled} />
-        <img id="status_scanning-map" className="img-fluid" src="nola.jpg" />
+        <NavBar toggleGeekMode={this.props.toggleGeekMode} />
+        <Radar />
         <div className="container">
           <Factoid />
           <LearnButton />

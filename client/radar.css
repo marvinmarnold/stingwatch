@@ -1,4 +1,4 @@
-#radar{
+#radar {
   position:relative;
   width:321px;
   height:321px;
@@ -7,13 +7,13 @@
   overflow:hidden;
 }
 
-#rad{
+#rad {
   position:absolute;
   width:321px;
   height:321px; background:url(http://i.stack.imgur.com/fbgUD.png);
 }
 
-.obj{
+.radarBlip {
   background:#cf5;
   position:absolute;
   border-radius:10px;
