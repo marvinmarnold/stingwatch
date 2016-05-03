@@ -19,7 +19,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        {React.cloneElement(this.props.children, { toggleGeekMode: this.toggleGeekMode.bind(this) })}
+        {React.cloneElement(this.props.children, { router: this.props.router, toggleGeekMode: this.toggleGeekMode.bind(this) })}
         {(this.state.geekModeEnabled) ? <GeekMode /> : <div></div>}
       </div>
     );
