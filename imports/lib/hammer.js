@@ -1,9 +1,9 @@
 export const HammerHelper = {
-  isLeft(dir) {
+  isNext(dir) {
     return dir === 2;
   },
 
-  isRight(dir) {
+  isPrev(dir) {
     return dir === 4;
   }
 };

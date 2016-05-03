@@ -1,42 +1,59 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
-import Hammer from 'react-hammerjs';
 
-import { STATUSES } from '../../globals.js';
-import { HammerHelper } from '../../lib/hammer.js';
-import StatusScanning from '../components/StatusScanning.jsx';
-import TweetComposer from '../components/TweetComposer.jsx';
+import IntroSlide1 from '../components/intro/IntroSlide1.jsx';
+import IntroSlide2 from '../components/intro/IntroSlide2.jsx';
+import IntroSlide3 from '../components/intro/IntroSlide3.jsx';
 
-export default class StatusPage extends React.Component {
+export default class IntroPage extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      page: 1
     };
   }
 
-  // https://github.com/hammerjs/hammer.js/wiki/Getting-Started
-  handleSwipe(event) {
-    var dir = event.direction
-
-    if(HammerHelper.isLeft(dir)) {
-      console.log("Going left");
-      browserHistory.push('/status')
+  introPrev() {
+    let page = this.state.page;
+    switch (page) {
+      case 1:
+        // Do nothing if on first page
+        break;
+      case 2:
+        this.setState({ page: --page });
+        break;
+      case 3:
+        this.setState({ page: --page });
+        break;
     }
   }
 
+  introNext() {
+    let page = this.state.page;
+    switch (page) {
+      case 1:
+        this.setState({ page: ++page });
+        break;
+      case 2:
+        this.setState({ page: ++page });
+        break;
+      case 3:
+        // Do nothing if on last page
+        break;
+    }
+  }
 
   render() {
-    return (
-      <Hammer onSwipe={this.handleSwipe}>
-        <div className='container-fluid text-xs-center'>
-          <div className='col-xs-4 offset-xs-4 m-t-3 p-t3'>
-            <img src='logo.gif' className='img-fluid center-block' />
-          </div>
-          <h1 className='m-t-1'>Welcome to StingWatch</h1>
-          <h2>Swipe to get started</h2>
-        </div>
-      </Hammer>
-    );
+    switch (this.state.page) {
+      case 1:
+        return <IntroSlide1 introPrev={this.introPrev.bind(this)} introNext={this.introNext.bind(this)} />
+        break;
+      case 2:
+        return <IntroSlide2 introPrev={this.introPrev.bind(this)} introNext={this.introNext.bind(this)} />
+        break;
+      case 3:
+        return <IntroSlide3 introPrev={this.introPrev.bind(this)} introNext={this.introNext.bind(this)} />
+        break;
+    }
   }
 }
