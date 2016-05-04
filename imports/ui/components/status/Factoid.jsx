@@ -1,7 +1,6 @@
 import React from 'react';
-import { createContainer } from 'meteor/react-meteor-data';
 
-import { FACTOIDS } from '../../globals.js';
+import { FACTOIDS } from '../../../globals.js';
 
 export default class Factoid extends React.Component {
   constructor(props) {
@@ -28,7 +27,7 @@ export default class Factoid extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='m-t-2'>
         <h4>Stingray Facts and Tips</h4>
         <p>{FACTOIDS[this.state.currentFactoidNum]}</p>
       </div>

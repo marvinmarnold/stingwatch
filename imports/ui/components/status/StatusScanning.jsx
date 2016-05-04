@@ -10,13 +10,21 @@ export default class StatusPage extends React.Component {
     return (
       <div>
         <NavBar toggleGeekMode={this.props.toggleGeekMode} />
-        <Radar />
+          <div className='h-center'>
+            <Radar />
+          </div>
         <div className="container">
           <Factoid />
-          <LearnButton />
-          <TweetButton
-            setComposingTweet={this.props.setComposingTweet}
-            loggedIn={this.props.loggedIn} />
+          <div className="row m-b-2">
+            <div className="col-xs-6">
+              <LearnButton />
+            </div>
+            <div className="col-xs-6">
+              <TweetButton
+                setComposingTweet={this.props.setComposingTweet}
+                loggedIn={this.props.loggedIn} />
+            </div>
+          </div>
         </div>
       </div>
     );

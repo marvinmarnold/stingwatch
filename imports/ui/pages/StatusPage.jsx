@@ -2,8 +2,8 @@ import React from 'react';
 
 import { STATUSES } from '../../globals.js';
 
-import StatusScanning from '../components/StatusScanning.jsx';
-import TweetComposer from '../components/TweetComposer.jsx';
+import StatusScanning from '../components/status/StatusScanning.jsx';
+import TweetComposer from '../components/status/TweetComposer.jsx';
 
 export default class StatusPage extends React.Component {
   constructor(props) {

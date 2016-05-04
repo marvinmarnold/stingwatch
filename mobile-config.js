@@ -1,7 +1,7 @@
 App.info({
   id: 'org.stingraymappingproject.sting_watch',
-  name: 'Stingwatch',
-  description: 'Stingwatch',
+  name: 'StingWatch',
+  description: 'StingWatch',
   author: 'The Stingray Mapping Project',
   email: 'marvin@unplugged.im',
   website: 'https://www.stingraymappingproject.org',
@@ -21,10 +21,7 @@ App.icons({
 App.accessRule('https://*.amazonaws.com');
 App.accessRule('https://*.mapbox.com');
 App.accessRule('http://*.mapbox.com');
-App.accessRule('https://stingraymappingproject.org');
-App.accessRule('https://stingraymappingproject.meteor.com');
-App.accessRule('https://stingwatch.meteor.com');
-App.accessRule('https://marvin.meteor.com');
+App.accessRule('https://stingwatch.stingraymappingproject.org');
 
 App.launchScreens({
   android_mdpi_portrait: 'public/splash/screen.png',
@@ -35,6 +32,6 @@ App.launchScreens({
   android_xhdpi_landscape: 'public/splash/screen-land.png',
 });
 
-App.setPreference('BackgroundColor', '0xff0000ff');
-App.setPreference('Orientation', 'default');
-App.setPreference('Orientation', 'all', 'ios');
+// App.setPreference('BackgroundColor', '0xff0000ff');
+// App.setPreference('Orientation', 'default');
+// App.setPreference('Orientation', 'all', 'ios');

@@ -9,10 +9,10 @@ export default class LearnButton extends React.Component {
     const url = "https://www.stingraymappingproject.org";
 
     return (
-      <a href={url} className="btn btn-secondary btn-lg"
+      <a href={url} className="btn btn-secondary btn-lg btn-block"
         onClick={this.handleClick}>
 
-        <i className="fa fa-graduation-cap"></i>&nbsp;&nbsp;Learn More
+        <i className="fa fa-graduation-cap"></i>&nbsp;&nbsp;Learn
       </a>
     );
   }

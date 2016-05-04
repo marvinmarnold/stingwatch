@@ -4,6 +4,11 @@
   justify-content: center;
 }
 
+.logo {
+  display: inline-block;
+  height: 4rem;
+}
+
 #status_scanning-map {
   width: 100%;
 }

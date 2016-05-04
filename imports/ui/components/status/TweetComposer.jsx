@@ -3,8 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createContainer } from 'meteor/react-meteor-data';
 
-import { STATUSES } from '../../globals.js';
-import { DEFAULT_TWEETS } from '../../globals.js';
+import { STATUSES } from '../../../globals.js';
+import { DEFAULT_TWEETS } from '../../../globals.js';
 
 export default class TweetComposer extends React.Component {
   constructor(props) {
