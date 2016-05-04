@@ -1,0 +1,17 @@
+.intro-slide-2 {
+  min-height: 100%;
+  background-size:   cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url('/intro/nopd-portrait.jpg');
+  color: #fff;
+}
+
+.intro-slide-3 {
+  min-height: 100%;
+  background-size:   cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url('/intro/cameras-portrait.jpg');
+  color: #fff;
+}

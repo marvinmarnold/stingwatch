@@ -21,12 +21,16 @@ export default class IntroSlide1 extends React.Component {
   render() {
     return (
       <Hammer onSwipe={this.handleSwipe.bind(this)} >
-        <div className='container-fluid text-xs-center'>
-          <div className='col-xs-4 offset-xs-4 m-t-3 p-t3'>
-            <img src='logo.gif' className='img-fluid center-block' />
+        <div className='full-screen v-middle'>
+          <div className='container-fluid text-xs-center'>
+            <div className="row">
+              <div className='col-xs-6 offset-xs-3 col-lg-4 offset-lg-4'>
+                <img src='logo.gif' className='img-fluid center-block m-t-2' />
+              </div>
+            </div>
+            <h1 className='m-t-2'>StingWatch</h1>
+            <h2 className='m-b-2'>Swipe to get started</h2>
           </div>
-          <h1 className='m-t-1'>Welcome to StingWatch</h1>
-          <h2>Swipe to get started</h2>
         </div>
       </Hammer>
     );
