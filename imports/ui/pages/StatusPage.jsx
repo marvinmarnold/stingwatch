@@ -1,16 +1,17 @@
 import React from 'react';
+import { Session } from 'meteor/session';
+import { createContainer } from 'meteor/react-meteor-data';
 
 import { STATUSES } from '../../globals.js';
 
 import StatusScanning from '../components/status/StatusScanning.jsx';
 import TweetComposer from '../components/status/TweetComposer.jsx';
 
-export default class StatusPage extends React.Component {
+class StatusPage extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      status: STATUSES.SCANNING,
       composingTweet: false
     };
   }
@@ -20,7 +21,7 @@ export default class StatusPage extends React.Component {
   }
 
   renderStatus() {
-    if (this.state.status === STATUSES.SCANNING) {
+    if (this.props.status === STATUSES.SCANNING) {
       return (
         <StatusScanning
           setComposingTweet={this.setComposingTweet.bind(this)}
@@ -35,7 +36,7 @@ export default class StatusPage extends React.Component {
     if(this.state.composingTweet) {
       return (
         <TweetComposer
-        status={this.state.status}
+        status={this.props.status}
         setComposingTweet={this.setComposingTweet.bind(this)} />
       );
     } else {
@@ -43,3 +44,10 @@ export default class StatusPage extends React.Component {
     }
   }
 }
+
+export default createContainer(() => {
+  status = Session.get("STATUS") || STATUSES.SCANNING
+  return {
+    status: status
+  };
+}, StatusPage);
