@@ -25,7 +25,7 @@ export default class IntroSlide3 extends React.Component {
           <div className='container-fluid text-xs-center'>
             <div className='col-xs-10 offset-xs-1 col-lg-6 offset-lg-3'>
               <h2>StingWatch is fighting back. Help us to expose unconstitutional police surveillance.</h2>
-              <Link to='/status' className='btn btn-primary btn-lg btn-block m-t-2'>
+              <Link to='/terms' className='btn btn-primary btn-lg btn-block m-t-2'>
                 Start StingWatch
               </Link>
             </div>

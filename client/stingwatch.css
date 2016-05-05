@@ -36,3 +36,8 @@ body, html, #app, #app-base {
   display: flex;
   align-items: center;
 }
+
+.btn-wrap {
+  white-space:normal !important;
+  word-wrap:break-word; 
+}
