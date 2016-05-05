@@ -8,21 +8,32 @@ export default class Factoid extends React.Component {
 
     this.state = {
       currentFactoidNum: 0,
+      timer: undefined
     };
   }
 
   componentDidMount() {
-    this.changeFactoid();
+    this.resetTimer();
+  }
+
+  componentWillUnmount() {
+    Meteor.clearTimeout(this.state.timer);
+  }
+
+  resetTimer() {
+    const thiz = this;
+
+    this.setState({
+      timer: setTimeout(() => {
+        thiz.changeFactoid();
+        thiz.resetTimer();
+      }, 10 * 1000)
+    });
   }
 
   changeFactoid() {
-    const thiz = this;
-
-    setTimeout(() => {
-      const i = (thiz.state.currentFactoidNum + 1) % FACTOIDS.length;
-      thiz.setState({currentFactoidNum: i});
-      thiz.changeFactoid();
-    }, 10 * 1000);
+    const i = (this.state.currentFactoidNum + 1) % FACTOIDS.length;
+    this.setState({currentFactoidNum: i});
   }
 
   render() {

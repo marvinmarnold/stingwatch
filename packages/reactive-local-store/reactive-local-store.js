@@ -38,5 +38,4 @@ export const RLS = {
   setRegisteredKeys(registeredKeys) {
     _registeredKeys = registeredKeys;
   }
-
 };
