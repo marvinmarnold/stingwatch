@@ -1,4 +1,9 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
+import { createContainer } from 'meteor/react-meteor-data';
+
+import { RLS } from 'meteor/reactive-local-store';
+import { SETTINGS } from '../globals.js';
 
 import GeekMode from './components/GeekMode.jsx';
 
@@ -9,6 +14,15 @@ export default class App extends React.Component {
     this.state = {
       geekModeEnabled: false
     };
+  }
+
+  componentDidMount () {
+    // If Terms already reviewed, skip intro
+    if((RLS.get(SETTINGS.TERMS_ACCEPTED) !== undefined) &&
+      (RLS.get(SETTINGS.TERMS_ACCEPTED) !== null)) {
+
+      browserHistory.push('/status');
+    }
   }
 
   toggleGeekMode() {

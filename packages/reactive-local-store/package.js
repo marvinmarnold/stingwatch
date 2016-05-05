@@ -13,12 +13,12 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.3.2.4');
   api.use('ecmascript');
-  api.mainModule('reactive-local-store.js');
+  api.mainModule('reactive-local-store.js', 'client');
 });
 
 Package.onTest(function(api) {
   api.use('ecmascript');
   api.use('tinytest');
   api.use('reactive-local-store', 'client');
-  api.mainModule('reactive-local-store-tests.js');
+  api.mainModule('reactive-local-store-tests.js', 'client');
 });

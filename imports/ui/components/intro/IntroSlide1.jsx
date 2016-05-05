@@ -10,9 +10,9 @@ export default class IntroSlide1 extends React.Component {
     var dir = event.direction
 
     if(HammerHelper.isPrev(dir)) {
-      console.log("IntroSlide1, Prev page");
+      // console.log("IntroSlide1, Prev page");
     } else if(HammerHelper.isNext(dir)) {
-      console.log("IntroSlide1, Next page");
+      // console.log("IntroSlide1, Next page");
       this.props.introNext();
     }
   }

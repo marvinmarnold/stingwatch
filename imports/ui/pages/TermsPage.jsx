@@ -1,12 +1,13 @@
 import React from 'react';
 import { Session } from 'meteor/session';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import { RLS } from 'meteor/reactive-local-store';
 import { SETTINGS } from '../../globals.js';
 
 export default class TermsPage extends React.Component {
   handleAccept() {
     RLS.set(SETTINGS.TERMS_ACCEPTED, true);
+    browserHistory.push('/status');
   }
 
   renderPolicyText() {

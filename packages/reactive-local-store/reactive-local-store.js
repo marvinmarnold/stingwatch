@@ -6,29 +6,37 @@ const sanitizedValue = function(v) {
     return true;
   } else if(v === "false") {
     return false;
+  } else if(v === "null") {
+    return null;
   } else {
     return v;
   }
 }
 
 let _registeredKeys = [];
-let _reactiveVar = new ReactiveVar();
+let _reactiveVar = new ReactiveVar({});
 
-export class RLS {
+export const RLS = {
+  get(key) {
+    return sanitizedValue(_reactiveVar.get()[key]);
+  },
 
   set(key, value) {
     window.localStorage.setItem(key, value);
-    _reactiveVar[key] = value;
-  }
+    let __reactiveVar = _reactiveVar.get();
+    __reactiveVar[key] = value;
+    _reactiveVar.set(__reactiveVar);
+  },
 
   init() {
     _.each(_registeredKeys, key => {
-      this.set(key, value);
+      const value = sanitizedValue(window.localStorage.getItem(key));
+      RLS.set(key, value);
     })
-  }
+  },
 
   setRegisteredKeys(registeredKeys) {
     _registeredKeys = registeredKeys;
   }
 
-}
+};
