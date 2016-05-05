@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'marvin:reactive-local-store',
+  name: 'reactive-local-store',
   version: '0.0.1',
   // Brief, one-line summary of the package.
   summary: '',
@@ -19,6 +19,6 @@ Package.onUse(function(api) {
 Package.onTest(function(api) {
   api.use('ecmascript');
   api.use('tinytest');
-  api.use('marvin:reactive-local-store');
+  api.use('reactive-local-store', 'client');
   api.mainModule('reactive-local-store-tests.js');
 });

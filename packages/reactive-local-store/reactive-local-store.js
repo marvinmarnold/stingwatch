@@ -1,34 +1,7 @@
 import { ReactiveVar } from 'meteor/reactive-var';
 import Meteor from 'meteor/meteor';
 
-if(Meteor.isClient || Meteor.isCordova) {
-
-  export class RLS {
-    _registeredKeys: [],
-    _reactiveVar: new ReactiveVar({}),
-
-    get(key) {
-      return _reactiveVar[key];
-    },
-
-    set(key, value) {
-      window.localStorage.setItem(key, value);
-      this._reactiveVar[key] = value;
-    }
-
-    init() {
-      _.each(this._registeredKeys, key => {
-        this.set(key, value);
-      })
-    },
-
-    setRegisteredKeys(registeredKeys) {
-      this._registeredKeys = registeredKeys;
-    }
-  }
-}
-
-var sanitizedValue = function(v) {
+const sanitizedValue = function(v) {
   if(v === "true") {
     return true;
   } else if(v === "false") {
@@ -36,4 +9,26 @@ var sanitizedValue = function(v) {
   } else {
     return v;
   }
+}
+
+let _registeredKeys = [];
+let _reactiveVar = new ReactiveVar();
+
+export class RLS {
+
+  set(key, value) {
+    window.localStorage.setItem(key, value);
+    _reactiveVar[key] = value;
+  }
+
+  init() {
+    _.each(_registeredKeys, key => {
+      this.set(key, value);
+    })
+  }
+
+  setRegisteredKeys(registeredKeys) {
+    _registeredKeys = registeredKeys;
+  }
+
 }

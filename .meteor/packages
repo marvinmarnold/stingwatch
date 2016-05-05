@@ -25,3 +25,5 @@ aldeed:simple-schema
 fortawesome:fontawesome
 fourseven:scss
 session
+reactive-local-store
+underscore

@@ -10,3 +10,7 @@ export const FACTOIDS = [
   "Factoid 2",
   "Factoid 3"
 ]
+
+export const SETTINGS = {
+  TERMS_ACCEPTED: 'settings-terms-accepted'
+}

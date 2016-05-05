@@ -63,6 +63,7 @@ random@1.0.9
 rate-limit@1.0.4
 react-meteor-data@0.2.9
 reactive-dict@1.1.7
+reactive-local-store@0.0.1
 reactive-var@1.0.9
 reload@1.1.8
 retry@1.0.7
