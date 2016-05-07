@@ -1,13 +1,14 @@
 import React from 'react';
+import { Session } from 'meteor/session';
 import { browserHistory } from 'react-router';
 import { createContainer } from 'meteor/react-meteor-data';
 
 import { RLS } from 'meteor/reactive-local-store';
-import { SETTINGS } from '../globals.js';
+import { SESSION_STATUS, STATUSES, SETTINGS } from '../globals.js';
 
 import GeekMode from './components/GeekMode.jsx';
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
 
@@ -17,11 +18,12 @@ export default class App extends React.Component {
   }
 
   componentDidMount () {
-    // If Terms already reviewed, skip intro
+    // If Terms already reviewed, skip intro and redirect
+    console.log(RLS.get(SETTINGS.TERMS_ACCEPTED));
     if((RLS.get(SETTINGS.TERMS_ACCEPTED) !== undefined) &&
       (RLS.get(SETTINGS.TERMS_ACCEPTED) !== null)) {
 
-      browserHistory.push('/status');
+      // browserHistory.push('/status');
     }
   }
 
@@ -34,7 +36,6 @@ export default class App extends React.Component {
     return (
       <div id='app-base'>
         {React.cloneElement(this.props.children, {
-          router: this.props.router,
           toggleGeekMode: this.toggleGeekMode.bind(this)
         })}
         {(this.state.geekModeEnabled) ? <GeekMode /> : <div></div>}
@@ -42,3 +43,17 @@ export default class App extends React.Component {
     );
   }
 }
+
+// {React.cloneElement(this.props.children, {
+//   toggleGeekMode: this.toggleGeekMode.bind(this)
+//   // status: this.props.status
+// })}
+
+export default createContainer(() => {
+  Session.setDefault(SESSION_STATUS, STATUSES.SCANNING);
+
+  return {
+    status: STATUSES.SCANNING //Session.get(SESSION_STATUS)
+  };
+}, App);
+// {(this.state.geekModeEnabled) ? <GeekMode /> : <div></div>}

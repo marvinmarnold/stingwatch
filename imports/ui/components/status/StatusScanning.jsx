@@ -21,8 +21,7 @@ export default class StatusPage extends React.Component {
             </div>
             <div className="col-xs-6">
               <TweetButton
-                setComposingTweet={this.props.setComposingTweet}
-                loggedIn={this.props.loggedIn} />
+                setComposingTweet={this.props.setComposingTweet} />
             </div>
           </div>
         </div>
