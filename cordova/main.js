@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 import { startupSim } from '../imports/startup/cordova/sim.js';
 import { startupDeviceId } from '../imports/startup/cordova/device-id.js';
-// import { configRLS } from '../imports/startup/client/reactive-local-store.js';
+import { startupNotifications } from '../imports/startup/cordova/notifications.js';
 
 Meteor.startup(() => {
   if(Meteor.isCordova) {
@@ -10,6 +10,6 @@ Meteor.startup(() => {
 
     startupSim();
     startupDeviceId();
-    // startupTelephony();
+    startupNotifications();
   }
 });

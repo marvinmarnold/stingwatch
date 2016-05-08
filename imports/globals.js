@@ -1,6 +1,13 @@
 export const SESSION_STATUS = "session-status";
-export const STATUSES = { SCANNING: 'STATUSES.SCANNING', DANGER: 'STATUSES.DANGER' };
+
+export const STATUSES = {
+  SCANNING: 'STATUSES.SCANNING',
+  DANGER: 'STATUSES.DANGER',
+  DANGER_TRIGGERED: 'STATUSES.DANGER_TRIGGERED'
+};
+
 export const APP_NAME = 'StingWatch';
+
 export const DEFAULT_TWEETS = {
   SCANNING: "Looks like you are safe",
   DANGER: "You are in grave danger"

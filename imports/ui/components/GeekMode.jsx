@@ -1,13 +1,14 @@
 import React from 'react';
 import { Session } from 'meteor/session';
 
+import { triggerDanger } from '../../lib/trigger-danger.js';
 import { SESSION_STATUS, STATUSES } from '../../globals.js';
 
 
 export default class GeekMode extends React.Component {
 
   handleDetection() {
-    Session.set(SESSION_STATUS, STATUSES.DANGER);
+    triggerDanger();
   }
 
   handleScan() {
