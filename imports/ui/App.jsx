@@ -36,7 +36,8 @@ class App extends React.Component {
     return (
       <div id='app-base'>
         {React.cloneElement(this.props.children, {
-          toggleGeekMode: this.toggleGeekMode.bind(this)
+          toggleGeekMode: this.toggleGeekMode.bind(this),
+          status: this.props.status
         })}
         {(this.state.geekModeEnabled) ? <GeekMode /> : <div></div>}
       </div>
@@ -44,16 +45,10 @@ class App extends React.Component {
   }
 }
 
-// {React.cloneElement(this.props.children, {
-//   toggleGeekMode: this.toggleGeekMode.bind(this)
-//   // status: this.props.status
-// })}
-
 export default createContainer(() => {
   Session.setDefault(SESSION_STATUS, STATUSES.SCANNING);
 
   return {
-    status: STATUSES.SCANNING //Session.get(SESSION_STATUS)
+    status: Session.get(SESSION_STATUS)
   };
 }, App);
-// {(this.state.geekModeEnabled) ? <GeekMode /> : <div></div>}

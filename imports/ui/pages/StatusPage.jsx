@@ -22,35 +22,30 @@ export default class StatusPage extends React.Component {
   }
 
   renderStatus() {
-    return <h1>getting to the bottom</h1>
-    // if (this.props.status === STATUSES.SCANNING) {
-    //   return (
-    //     <StatusScanning
-    //       setComposingTweet={this.setComposingTweet.bind(this)}
-    //       toggleGeekMode={this.props.toggleGeekMode} />
-    //   );
-    // } else {
-    //   return <h1>HI</h1>
-    //   // return (
-    //   //   <StatusDanger
-    //   //     setComposingTweet={this.setComposingTweet.bind(this)}
-    //   //     toggleGeekMode={this.props.toggleGeekMode} />
-    //   // );
-    // }
+    if (this.props.status === STATUSES.SCANNING) {
+      return (
+        <StatusScanning
+          setComposingTweet={this.setComposingTweet.bind(this)}
+          toggleGeekMode={this.props.toggleGeekMode} />
+      );
+    } else {
+      return (
+        <StatusDanger
+          setComposingTweet={this.setComposingTweet.bind(this)}
+          toggleGeekMode={this.props.toggleGeekMode} />
+      );
+    }
   }
 
   render() {
-    return (
-      <h2>fail</h2>
-    );
-    // if(this.state.composingTweet) {
-    //   return (
-    //     <TweetComposer
-    //       status={this.props.status}
-    //       setComposingTweet={this.setComposingTweet.bind(this)} />
-    //   );
-    // } else {
-    //   return this.renderStatus();
-    // }
+    if(this.state.composingTweet) {
+      return (
+        <TweetComposer
+          status={this.props.status}
+          setComposingTweet={this.setComposingTweet.bind(this)} />
+      );
+    } else {
+      return this.renderStatus();
+    }
   }
 }

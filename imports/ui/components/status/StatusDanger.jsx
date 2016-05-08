@@ -6,7 +6,12 @@ import NavBar from './NavBar.jsx';
 import TweetButton from './TweetButton.jsx';
 
 class StatusDanger extends React.Component {
+  componentDidMount() {
+    this.props.initMap();
+  }
+
   render() {
+    console.log('rendered');
     return (
       <div>
         <NavBar toggleGeekMode={this.props.toggleGeekMode} />
@@ -32,29 +37,29 @@ class StatusDanger extends React.Component {
 
 let map, threatsLayer;
 export default createContainer(() => {
+  console.log("createContainer");
 
   const initMap = () => {
-    L.mapbox.accessToken = Meteor.settings.public.MAPBOX_TOKEN;
+    Tracker.autorun(function () {
+      if (Mapbox.loaded()) {
+        if(!map) {
+          L.mapbox.accessToken = Meteor.settings.public.MAPBOX_TOKEN;
 
-    map = L.mapbox.map('map', 'mapbox.streets').setView([
-      29.942355,
-      -90.078635
-    ], 12);
+          map = L.mapbox.map('map', 'mapbox.streets').setView([
+            29.942355,
+            -90.078635
+          ], 12);
 
-    threatsLayer = L.mapbox.featureLayer().addTo(map);
-  };
-
-  Tracker.autorun(function () {
-    if (Mapbox.loaded()) {
-      if(!map) {
-        initMap();
+          threatsLayer = L.mapbox.featureLayer().addTo(map);
+        }
       }
-    }
-  });
+    });
+  };
 
   return {
     loading: !map,
     map: map,
     threatsLayer: threatsLayer,
+    initMap: initMap
   };
 }, StatusDanger);
