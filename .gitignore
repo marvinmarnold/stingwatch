@@ -3,3 +3,5 @@ packages/bootstrap
 scripts
 settings
 .meteor/local
+packages/meteor-imsi-catcher-catcher
+packages/device-id
