@@ -6,6 +6,7 @@ import { configRLS } from '../imports/startup/client/reactive-local-store.js';
 import { configMapbox } from '../imports/startup/client/mapbox.js';
 
 Meteor.startup(() => {
+  console.log("Starting client");
   configRLS();
   configMapbox();
   render(renderRoutes(), document.getElementById('app'));
