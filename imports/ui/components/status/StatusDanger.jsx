@@ -7,11 +7,17 @@ import TweetButton from './TweetButton.jsx';
 
 class StatusDanger extends React.Component {
   componentDidMount() {
+    console.log('StatusDanger didMount');
     this.props.initMap();
   }
 
+  componentWillUnmount() {
+    console.log('StatusDanger willUnmount');
+
+    this.props.unmountMap();
+  }
+
   render() {
-    console.log('rendered');
     return (
       <div>
         <NavBar toggleGeekMode={this.props.toggleGeekMode} />
@@ -35,9 +41,14 @@ class StatusDanger extends React.Component {
   }
 }
 
-let map, threatsLayer;
+
 export default createContainer(() => {
-  console.log("createContainer");
+  let map, threatsLayer;
+
+  const unmountMap = () => {
+    map = undefined;
+    threatsLayer = undefined;
+  }
 
   const initMap = () => {
     Tracker.autorun(function () {
@@ -60,6 +71,7 @@ export default createContainer(() => {
     loading: !map,
     map: map,
     threatsLayer: threatsLayer,
-    initMap: initMap
+    initMap: initMap,
+    unmountMap: unmountMap
   };
 }, StatusDanger);

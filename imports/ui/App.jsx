@@ -19,7 +19,6 @@ class App extends React.Component {
 
   componentDidMount () {
     // If Terms already reviewed, skip intro and redirect
-    console.log(RLS.get(SETTINGS.TERMS_ACCEPTED));
     if((RLS.get(SETTINGS.TERMS_ACCEPTED) !== undefined) &&
       (RLS.get(SETTINGS.TERMS_ACCEPTED) !== null)) {
 
@@ -35,11 +34,17 @@ class App extends React.Component {
   render() {
     return (
       <div id='app-base'>
-        {React.cloneElement(this.props.children, {
-          toggleGeekMode: this.toggleGeekMode.bind(this),
-          status: this.props.status
-        })}
-        {(this.state.geekModeEnabled) ? <GeekMode /> : <div></div>}
+        {
+          React.cloneElement(this.props.children, {
+            toggleGeekMode: this.toggleGeekMode.bind(this),
+            status: this.props.status
+          })
+        }
+
+        {
+          (this.state.geekModeEnabled) ?
+          <GeekMode status={this.props.status} /> : <div></div>
+        }
       </div>
     );
   }

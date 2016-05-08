@@ -1,5 +1,6 @@
 import React from 'react';
 
+let timer;
 export default class Radar extends React.Component {
   componentDidMount() {
     const $rad = $('#rad');
@@ -21,11 +22,15 @@ export default class Radar extends React.Component {
       $rad.css({transform: 'rotate('+ deg +'deg)'});
       $('[data-atDeg='+deg+']').stop().fadeTo(0, 1).fadeTo(1700, 0.2);
 
-      setTimeout(function() {
+      timer = setTimeout(function() {
         deg = ++deg % 360;
         rotate();
       }, 25);
     })();
+  }
+
+  componentWillUnmount() {
+    clearTimeout(timer)
   }
 
   render() {
