@@ -12,7 +12,7 @@ export default class TermsRejectedPage extends React.Component {
 
   renderButtons() {
     return (
-      <div className="row m-b-1 m-t-2">
+      <div className="row m-b-1 m-t-3">
         <div className='col-xs-6'>
           <Link className='btn btn-lg btn-block btn-primary btn-wrap' to='/terms'>
             Back to terms
@@ -21,7 +21,7 @@ export default class TermsRejectedPage extends React.Component {
         <div className='col-xs-6'>
           <button className='btn btn-lg btn-outline-danger btn-block btn-wrap' onClick={this.handleReject.bind(this)}>
 
-            Continue anyways
+            Reject terms
           </button>
         </div>
       </div>

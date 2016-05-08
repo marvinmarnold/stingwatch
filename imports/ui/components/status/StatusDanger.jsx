@@ -7,13 +7,10 @@ import TweetButton from './TweetButton.jsx';
 
 class StatusDanger extends React.Component {
   componentDidMount() {
-    console.log('StatusDanger didMount');
     this.props.initMap();
   }
 
   componentWillUnmount() {
-    console.log('StatusDanger willUnmount');
-
     this.props.unmountMap();
   }
 
