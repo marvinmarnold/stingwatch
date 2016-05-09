@@ -1,5 +1,7 @@
 cordova-plugin-dialogs@1.2.1
+cordova-plugin-file@4.2.0
+cordova-plugin-filee@4.2.0
 cordova-plugin-sim@1.2.1
-cordova-plugin-telephony@file://packages/cordova-plugin-telephony
+cordova-plugin-telephony@file://../cordova-plugin-telephony
 cordova-plugin-vibration@2.1.1
 de.appplant.cordova.plugin.local-notification@0.8.4

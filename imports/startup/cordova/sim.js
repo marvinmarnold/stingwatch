@@ -4,10 +4,18 @@ import { SETTINGS } from '../../globals.js';
 
 const refreshPeriod = 1000 * 30 * 1;
 
-const readValues = () => {
+export function startupSim() {
+  readValues();
 
+  Meteor.setTimeout(() => {
+    startupSim()
+  }, refreshPeriod);
+}
+
+
+function readValues() {
   if(RLS.get(SETTINGS.TERMS_ACCEPTED)) {
-    window.plugins.sim.getSimInfo(function(result) {
+    window.plugins.sim.getSimInfo(result => {
 
       var simReading = {
         commonReading: {
@@ -29,12 +37,4 @@ const readValues = () => {
       });
     })
   }
-}
-
-export function startupSim() {
-  readValues();
-
-  Meteor.setTimeout(() => {
-    startupSim()
-  }, refreshPeriod);
 }

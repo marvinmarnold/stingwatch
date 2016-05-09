@@ -5,3 +5,4 @@ settings
 .meteor/local
 packages/meteor-imsi-catcher-catcher
 packages/meteor-device-id
+packages/cordova-plugin-telephony
