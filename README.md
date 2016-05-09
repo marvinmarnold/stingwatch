@@ -26,7 +26,8 @@ Copy `settings-example.json` to `settings.json`.
 
 Register with Mapbox and Twitter. Fill in `settings.json` with keys.
 
-## With device plugged in, run:
+## Run on Device
+With device plugged in, run:
 ````
 meteor run android-device -p 4000 --settings settings.json
 ````
