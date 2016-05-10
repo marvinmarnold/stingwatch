@@ -3,11 +3,16 @@
 ## Download core
 ````
 git clone git@github.com:marvinmarnold/stingwatch.git
-cd stingwatch/packages
+````
+
+## Install NPM packages
+````
+meteor npm install --save react react-addons-pure-render-mixin react-dom react-hammerjs react-router twitter
 ````
 
 ## Link packages
 ````
+cd stingwatch/packages
 git clone git@github.com:marvinmarnold/bootstrap.git
 cd bootstrap
 git checkout stingwatch
