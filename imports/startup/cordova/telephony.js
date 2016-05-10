@@ -28,16 +28,19 @@ function readLocation(telephonyResult) {
 function readValues() {
   console.log("Telephony readValues");
 
+  // Read telephony values from device through cordova-plugin-telephony
   if(RLS.get(SETTINGS.TERMS_ACCEPTED)) {
-    window.plugins.telephony.refresh(result => {
-      console.log('Telephony received data');
-      console.log(result);
-      createNeighborReadings(result)
+    window.plugins.telephony.requestReadPermission( () => {
+      window.plugins.telephony.getTelephonyInfo(result => {
+        console.log('Telephony received data');
+        console.log(result);
+        createNeighborReadings(result)
 
-      readLocation(result);
-    }, error => {
-      console.log('telephony error');
-    });
+        readLocation(result);
+      }, error => {
+        console.log('telephony error');
+      });
+    })
   }
 }
 
