@@ -10,7 +10,7 @@ import TweetComposer from '../components/status/TweetComposer.jsx';
 
 import { watchDetections } from '../../lib/trigger-danger.js';
 
-export default class StatusPage extends React.Component {
+class StatusPage extends React.Component {
   constructor(props) {
     super(props);
 
@@ -62,4 +62,4 @@ export default createContainer(() => {
   return {
     detection: detection,
   };
-}, StatusDanger);
+}, StatusPage);

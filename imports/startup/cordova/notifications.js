@@ -25,7 +25,7 @@ export function startupNotifications() {
         id: notificationId,
         text: "Stingray Detected",
         led: "FFFFFF",
-        icon: notificationIcon
+        // icon: notificationIcon
       });
 
       // Do something on click
