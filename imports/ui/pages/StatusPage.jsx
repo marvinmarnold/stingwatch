@@ -8,6 +8,8 @@ import StatusScanning from '../components/status/StatusScanning.jsx';
 import StatusDanger from '../components/status/StatusDanger.jsx';
 import TweetComposer from '../components/status/TweetComposer.jsx';
 
+import { watchDetections } from '../../lib/trigger-danger.js';
+
 export default class StatusPage extends React.Component {
   constructor(props) {
     super(props);
@@ -31,6 +33,7 @@ export default class StatusPage extends React.Component {
     } else {
       return (
         <StatusDanger
+          detection={this.props.detection}
           setComposingTweet={this.setComposingTweet.bind(this)}
           toggleGeekMode={this.props.toggleGeekMode} />
       );
@@ -49,3 +52,14 @@ export default class StatusPage extends React.Component {
     }
   }
 }
+
+export default createContainer(() => {
+  const detectionHandle = Meteor.subscribe('catcher.detections.newest');
+  const detection = Catcher.Detections.findOne();
+
+  watchDetections();
+
+  return {
+    detection: detection,
+  };
+}, StatusDanger);

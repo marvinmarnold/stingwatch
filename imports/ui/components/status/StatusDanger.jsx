@@ -38,7 +38,6 @@ class StatusDanger extends React.Component {
   }
 }
 
-
 export default createContainer(() => {
   let map, threatsLayer;
 
@@ -48,7 +47,7 @@ export default createContainer(() => {
   }
 
   const initMap = () => {
-    Tracker.autorun(function () {
+    Tracker.autorun(() => {
       if (Mapbox.loaded()) {
         if(!map) {
           L.mapbox.accessToken = Meteor.settings.public.MAPBOX_TOKEN;

@@ -14,7 +14,7 @@ export function startupTelephony() {
 
 function readLocation(telephonyResult) {
   navigator.geolocation.getCurrentPosition(pos => {
-    console.log('gps data received');
+    // console.log('gps data received');
 
     insertGSMReading(telephonyResult, pos)
   },
@@ -26,14 +26,14 @@ function readLocation(telephonyResult) {
 }
 
 function readValues() {
-  console.log("Telephony readValues");
+  // console.log("Telephony readValues");
 
   // Read telephony values from device through cordova-plugin-telephony
   if(RLS.get(SETTINGS.TERMS_ACCEPTED)) {
     window.plugins.telephony.requestReadPermission( () => {
       window.plugins.telephony.getTelephonyInfo(result => {
-        console.log('Telephony received data');
-        console.log(result);
+        // console.log('Telephony received data');
+        // console.log(result);
         createNeighborReadings(result)
 
         readLocation(result);
@@ -45,8 +45,8 @@ function readValues() {
 }
 
 function insertGSMReading (result, pos) {
-  console.log('insertGPS reading');
-  console.log(result);
+  // console.log('insertGPS reading');
+  // console.log(result);
 
   var gsmReading = {
     commonReading: {
@@ -69,33 +69,33 @@ function insertGSMReading (result, pos) {
   console.log(gsmReading);
 
   Meteor.call('catcher/readings/insert', gsmReading, (error, result) => {
-    console.log('after insert');
-    console.log(error);
-    console.log(result);
+    // console.log('after insert');
+    // console.log(error);
+    // console.log(result);
   })
 }
 
 function createNeighborReadings(result) {
-  console.log('createNeighborReadings');
+  // console.log('createNeighborReadings');
   var neighbors = result.neighbors
 
   if(neighbors) {
     console.log('Creating neighbors');
     _.each(neighbors, neighbor => {
-      console.log(neighborReading);
       var neighborReading = {
         commonReading: {
           deviceId: DeviceId.get(),
           readingType: Catcher.READING_TYPES.ANDROID_V1_NEIGHBOR,
           deviceScannerId: 2
         },
-        networkType: result.networkType,
-        lac: parseInt(result.lac) || -1,
-        cid: parseInt(result.cid) || -1,
-        psc: parseInt(result.psc) || -1,
+        networkType: neighbor.networkType,
+        lac: parseInt(neighbor.lac) || -1,
+        cid: parseInt(neighbor.cid) || -1,
+        psc: parseInt(neighbor.psc) || -1,
         signalStrengthDBM: parseInt(result.signalStrength) || -1
       }
 
+      console.log(neighborReading);
       Meteor.call('catcher/readings/insert', neighborReading)
     })
   }

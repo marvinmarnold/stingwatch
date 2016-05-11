@@ -22,7 +22,7 @@ class App extends React.Component {
     if((RLS.get(SETTINGS.TERMS_ACCEPTED) !== undefined) &&
       (RLS.get(SETTINGS.TERMS_ACCEPTED) !== null)) {
 
-      // browserHistory.push('/status');
+      browserHistory.push('/status');
     }
   }
 

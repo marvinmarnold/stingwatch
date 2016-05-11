@@ -11,3 +11,13 @@ export function triggerDanger() {
     Session.set(STATUSES.DANGER_TRIGGERED, false)
   }, triggerDuration);
 }
+
+// Trigger Danger if any detections found
+export function watchDetections() {
+  console.log('watchDetections');
+
+  Tracker.autorun(() => {
+    if(!!Catcher.Detections.findOne())
+      triggerDanger();
+  });
+}
