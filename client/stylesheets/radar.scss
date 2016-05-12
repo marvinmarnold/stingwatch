@@ -10,7 +10,8 @@ $size: 321px;
   position: relative;
   width: $size;
   height: $size;
-  background:#222 url(http://smartphone-attack-vector.de/wp-content/uploads/2016/04/map-radar.jpg);
+  background:#222 url('/intro/map-radar.jpg');
+  /** background:#222 url(http://smartphone-attack-vector.de/wp-content/uploads/2016/04/map-radar.jpg); **/
   border-radius: 320px;
   overflow:hidden;
 }
@@ -18,7 +19,8 @@ $size: 321px;
 #rad {
   position:absolute;
   width: $size;
-  height: $size; background:url(http://i.stack.imgur.com/fbgUD.png);
+  height: $size;
+  background:url('/intro/radar.jpg');
 }
 
 .radarBlip {
