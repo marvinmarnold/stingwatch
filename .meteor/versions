@@ -47,6 +47,7 @@ localstorage@1.0.9
 logging@1.0.12
 marvin:device-id@0.0.1
 marvin:imsi-catcher-catcher@0.0.1
+marvin:reactive-local-store@0.0.1
 matb33:collection-hooks@0.8.1
 mdg:validation-error@0.5.1
 meteor@1.1.14
@@ -72,7 +73,6 @@ random@1.0.9
 rate-limit@1.0.4
 react-meteor-data@0.2.9
 reactive-dict@1.1.7
-reactive-local-store@0.0.1
 reactive-var@1.0.9
 reload@1.1.8
 retry@1.0.7

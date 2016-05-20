@@ -66,8 +66,8 @@ function insertGSMReading (result, pos) {
     hasNeighbors: result.neighbors && result.neighbors.length > 0
   }
 
-  console.log('about to insert');
-  console.log(gsmReading);
+  // console.log('about to insert');
+  // console.log(gsmReading);
 
   Meteor.call('catcher.readings.insert', gsmReading, (error, result) => {
     // console.log('after insert');
@@ -81,7 +81,7 @@ function createNeighborReadings(result) {
   var neighbors = result.neighbors
 
   if(neighbors) {
-    console.log('Creating neighbors');
+    // console.log('Creating neighbors');
     _.each(neighbors, neighbor => {
       var neighborReading = {
         commonReading: {
@@ -96,7 +96,7 @@ function createNeighborReadings(result) {
         signalStrengthDBM: parseInt(result.signalStrength) || -1
       }
 
-      console.log(neighborReading);
+      // console.log(neighborReading);
       Meteor.call('catcher.readings.insert', neighborReading)
     })
   }

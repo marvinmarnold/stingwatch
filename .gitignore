@@ -6,4 +6,5 @@ settings
 packages/meteor-imsi-catcher-catcher
 packages/meteor-device-id
 packages/cordova-plugin-telephony
+packages/meteor-reactive-local-store
 settings.json

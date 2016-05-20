@@ -25,7 +25,7 @@ aldeed:simple-schema
 fortawesome:fontawesome
 fourseven:scss
 session
-reactive-local-store
+marvin:reactive-local-store
 underscore
 pauloborges:mapbox
 marvin:device-id

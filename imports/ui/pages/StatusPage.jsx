@@ -9,8 +9,6 @@ import StatusScanning from '../components/status/StatusScanning.jsx';
 import StatusDanger from '../components/status/StatusDanger.jsx';
 import TweetComposer from '../components/status/TweetComposer.jsx';
 
-import { watchDetections } from '../../lib/trigger-danger.js';
-
 class StatusPage extends React.Component {
   constructor(props) {
     super(props);
@@ -55,11 +53,11 @@ class StatusPage extends React.Component {
 }
 
 export default createContainer(() => {
-  const detectionHandle = Meteor.subscribe('catcher.detections.newest');
-  // const detection = Catcher.Detections.findOne();
-  const detection = false;
+  const detectionHandle = Meteor.subscribe('catcher.detections.me', DeviceId.get());
+  const detection = Catcher.Detections.findOne();
 
-  watchDetections();
+  console.log('Found detections');
+  console.log(detection);
 
   return {
     detection: detection,
