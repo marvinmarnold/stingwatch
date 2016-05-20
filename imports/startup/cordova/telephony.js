@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { RLS } from 'meteor/reactive-local-store';
 import { SETTINGS } from '../../globals.js';
+import { Catcher } from 'meteor/marvin:imsi-catcher-catcher';
 
 const refreshPeriod = 1000 * 15;
 
@@ -34,7 +35,7 @@ function readValues() {
       window.plugins.telephony.getTelephonyInfo(result => {
         // console.log('Telephony received data');
         // console.log(result);
-        createNeighborReadings(result)
+        createNeighborReadings(result);
 
         readLocation(result);
       }, error => {
@@ -68,7 +69,7 @@ function insertGSMReading (result, pos) {
   console.log('about to insert');
   console.log(gsmReading);
 
-  Meteor.call('catcher/readings/insert', gsmReading, (error, result) => {
+  Meteor.call('catcher.readings.insert', gsmReading, (error, result) => {
     // console.log('after insert');
     // console.log(error);
     // console.log(result);
@@ -96,7 +97,7 @@ function createNeighborReadings(result) {
       }
 
       console.log(neighborReading);
-      Meteor.call('catcher/readings/insert', neighborReading)
+      Meteor.call('catcher.readings.insert', neighborReading)
     })
   }
 }

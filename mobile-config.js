@@ -21,7 +21,8 @@ App.icons({
 App.accessRule('https://*.amazonaws.com');
 App.accessRule('https://*.mapbox.com');
 App.accessRule('http://*.mapbox.com');
-App.accessRule('https://stingwatch.stingraymappingproject.org');
+App.accessRule('https://*.stingraymappingproject.org');
+App.accessRule('https://stingraymappingproject.org');
 
 App.launchScreens({
   android_mdpi_portrait: 'public/splash/screen.png',
@@ -32,6 +33,7 @@ App.launchScreens({
   android_xhdpi_landscape: 'public/splash/screen-land.png',
 });
 
+App.setPreference('android-versionCode', '30');
 // App.setPreference('BackgroundColor', '0xff0000ff');
 // App.setPreference('Orientation', 'default');
 // App.setPreference('Orientation', 'all', 'ios');

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Session } from 'meteor/session';
 import { createContainer } from 'meteor/react-meteor-data';
+import { Catcher } from 'meteor/marvin:imsi-catcher-catcher';
 
 import { SESSION_STATUS, STATUSES } from '../../globals.js';
 
@@ -55,7 +56,8 @@ class StatusPage extends React.Component {
 
 export default createContainer(() => {
   const detectionHandle = Meteor.subscribe('catcher.detections.newest');
-  const detection = Catcher.Detections.findOne();
+  // const detection = Catcher.Detections.findOne();
+  const detection = false;
 
   watchDetections();
 

@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { RLS } from 'meteor/reactive-local-store';
 import { SETTINGS } from '../../globals.js';
+import { Catcher } from 'meteor/marvin:imsi-catcher-catcher';
 
 const refreshPeriod = 1000 * 30 * 1;
 
@@ -32,7 +33,7 @@ function readValues() {
       console.log('Going to insert SIM reading:');
       console.log(simReading);
 
-      Meteor.call('catcher/readings/insert', simReading, (error, result) => {
+      Meteor.call('catcher.readings.insert', simReading, (error, result) => {
         console.log(result);
       });
     })
