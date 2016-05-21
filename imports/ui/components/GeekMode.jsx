@@ -1,5 +1,6 @@
 import React from 'react';
 import { Session } from 'meteor/session';
+import { DeviceId } from 'meteor/marvin:device-id';
 
 import { triggerDanger } from '../../lib/trigger-danger.js';
 import { SESSION_STATUS, STATUSES } from '../../globals.js';
@@ -16,7 +17,7 @@ export default class GeekMode extends React.Component {
 
   refreshDeviceId() {
     const thiz = this;
-    DeviceId.refresh(() => {
+    DeviceId.regen(() => {
       thiz.forceUpdate();
     });
   }

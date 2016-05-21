@@ -3,6 +3,8 @@ import { Session } from 'meteor/session';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Catcher } from 'meteor/marvin:imsi-catcher-catcher';
 
+import { DeviceId } from 'meteor/marvin:device-id';
+
 import { SESSION_STATUS, STATUSES } from '../../globals.js';
 
 import StatusScanning from '../components/status/StatusScanning.jsx';

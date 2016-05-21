@@ -1,7 +1,7 @@
 import React from 'react';
 import { Session } from 'meteor/session';
 import { Link, browserHistory } from 'react-router';
-import { RLS } from 'meteor/reactive-local-store';
+import { RLS } from 'meteor/marvin:reactive-local-store';
 import { SETTINGS } from '../../globals.js';
 
 export default class TermsRejectedPage extends React.Component {

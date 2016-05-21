@@ -1,3 +1,5 @@
+import { DeviceId } from 'meteor/marvin:device-id';
+
 export function startupDeviceId() {
   console.log("startupDeviceId");
 

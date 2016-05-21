@@ -3,7 +3,7 @@ import { Session } from 'meteor/session';
 import { browserHistory } from 'react-router';
 import { createContainer } from 'meteor/react-meteor-data';
 
-import { RLS } from 'meteor/reactive-local-store';
+import { RLS } from 'meteor/marvin:reactive-local-store';
 import { SESSION_STATUS, STATUSES, SETTINGS } from '../globals.js';
 
 import GeekMode from './components/GeekMode.jsx';

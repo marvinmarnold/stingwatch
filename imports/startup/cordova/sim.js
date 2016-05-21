@@ -1,7 +1,8 @@
 import { Meteor } from 'meteor/meteor';
-import { RLS } from 'meteor/reactive-local-store';
+import { RLS } from 'meteor/marvin:reactive-local-store';
 import { SETTINGS } from '../../globals.js';
 import { Catcher } from 'meteor/marvin:imsi-catcher-catcher';
+import { DeviceId } from 'meteor/marvin:device-id';
 
 const refreshPeriod = 1000 * 30 * 1;
 

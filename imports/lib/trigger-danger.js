@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Session } from 'meteor/session';
 import { SESSION_STATUS, STATUSES } from '../globals.js';
+import { DeviceId } from 'meteor/marvin:device-id';
 
 const triggerDuration = 3510; // ms
 
