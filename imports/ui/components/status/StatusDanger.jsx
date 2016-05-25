@@ -38,8 +38,11 @@ class StatusDanger extends React.Component {
   }
 }
 
-export default createContainer(() => {
+export default createContainer(({detection}) => {
+  console.log('got more tt');
+  console.log(detection);
   let map, threatsLayer;
+  let loading = true;
 
   const unmountMap = () => {
     map = undefined;
@@ -49,22 +52,36 @@ export default createContainer(() => {
   const initMap = () => {
     Tracker.autorun(() => {
       if (Mapbox.loaded()) {
-        if(!map) {
+        if(!!map && !!detection) {
           L.mapbox.accessToken = Meteor.settings.public.MAPBOX_TOKEN;
 
           map = L.mapbox.map('map', 'mapbox.streets').setView([
-            29.942355,
-            -90.078635
+            detection.latitude,
+            detection.longitude
           ], 12);
 
           threatsLayer = L.mapbox.featureLayer().addTo(map);
+          // var myLayer = L.mapbox.featureLayer(geojson, {
+          //   pointToLayer: function(feature, latlon) {
+          //     return L.circleMarker([detection.latitude, detection.longitude], {
+          //       fillColor: '#ff0000',
+          //       fillOpacity: 0.8,
+          //       stroke: false
+          //     });
+          //   }
+          // }).addTo(map);
+
+          L.circleMarker([detection.latitude, detection.longitude], {
+            fillColor: '#ff0000',
+            fillOpacity: 0.8,
+            stroke: false
+          }).addTo(threatsLayer);
         }
       }
     });
   };
 
   return {
-    loading: !map,
     map: map,
     threatsLayer: threatsLayer,
     initMap: initMap,
