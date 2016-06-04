@@ -12,23 +12,23 @@ The main package that StingWatch relies on is [imsi-catcher-catcher](https://git
 imsi-catcher-catcher is also being incorporated into another project at the same time, [StingWatch Desktop](https://github.com/marvinmarnold/stingwatch-desktop), a version of StingWatch that can run on anything that supports gnuradio and Meteor, like an [Intel Compute Stick](http://www.intel.com/content/www/us/en/compute-stick/intel-compute-stick.html).
 
 # Get StingWatch
-## Precompiled
+## APKs
 * [Google Play](https://play.google.com/apps/testing/org.stingraymappingproject.sting_watch) (in beta testing)
 * FDroid coming soon
 * Direct APK link coming soon
 
-## Setup
+## Install from source
 Make sure the following are installed:
 - git, curl: `sudo apt-get install git curl`
 - Meteor: https://www.meteor.com/install
 - Android SDK: https://guide.meteor.com/mobile.html
 
-## Get the code and plugins
+### Get the code and plugins
 Both these methods are assuming an installation into `~/.stingwatch`.
-### Option 1: Script
+#### Option 1: Script
 `curl https://stingraymappingproject.org/install.sh | sh`
 
-### Option 2: Manual
+#### Option 2: Manual
 These instructions are copied from the install script above:
 ````
 # Get StingWatch
@@ -60,7 +60,7 @@ cp settings-example.json settings.json
 chmod +x stingwatch.sh
 ````
 
-## Configure settings
+### Configure settings
 Register with Mapbox and Twitter.
 Fill in `settings.json` with keys.
 
