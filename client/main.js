@@ -7,7 +7,7 @@ import { configMapbox } from '../imports/startup/client/mapbox.js';
 import { startupDeviceId } from '../imports/startup/client/device-id.js';
 
 Meteor.startup(() => {
-  console.log("Starting client");
+  // console.log("Starting client");
   configRLS();
   configMapbox();
   startupDeviceId();

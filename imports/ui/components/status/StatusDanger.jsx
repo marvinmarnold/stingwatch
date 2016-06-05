@@ -41,8 +41,8 @@ class StatusDanger extends React.Component {
 }
 
 let frameLoaded = false;
+let map, threatsLayer;
 export default createContainer(({detection}) => {
-  let map, threatsLayer;
 
 
   const unmountMap = () => {
@@ -54,6 +54,7 @@ export default createContainer(({detection}) => {
   }
 
   const initMap = () => {
+    frameLoaded = true;
     // console.log("initMap");
     if (Mapbox.loaded()) {
       if(!map && !!detection) {
@@ -63,7 +64,7 @@ export default createContainer(({detection}) => {
           map = L.mapbox.map('map', 'mapbox.streets').setView([
             detection.latitude,
             detection.longitude
-          ], 12);
+          ], 7);
 
           threatsLayer = L.mapbox.featureLayer().addTo(map);
 

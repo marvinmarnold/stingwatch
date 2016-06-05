@@ -17,12 +17,12 @@ export function triggerDanger() {
   // If testing in web browser, deviceId not set
   const deviceId = DeviceId.get() || Random.id()
   Meteor.call("catcher.simulate-detection", deviceId, (error, result) => {
-    console.log('Got result from simulate-detection');
+    // console.log('Got result from simulate-detection');
     if(error) {
       console.log("error", error);
     }
     if(result) {
-      console.log(result);
+      // console.log(result);
     }
   });
 

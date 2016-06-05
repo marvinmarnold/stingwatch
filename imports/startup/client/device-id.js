@@ -1,8 +1,6 @@
 import { DeviceId } from 'meteor/marvin:device-id';
 
 export function startupDeviceId() {
-  console.log("startupDeviceId");
-
   // Generate a deviceId client side
   DeviceId.gen((error, deviceId) => {
     // console.log('deviceId error');

@@ -58,9 +58,6 @@ export default createContainer(() => {
   const detectionHandle = Meteor.subscribe('catcher.detections.me', DeviceId.get());
   const detection = Catcher.Detections.findOne();
 
-  console.log('Found detections');
-  console.log(detection);
-
   return {
     detection: detection,
   };

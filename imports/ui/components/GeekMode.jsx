@@ -16,7 +16,6 @@ export default class GeekMode extends React.Component {
   }
 
   refreshDeviceId() {
-    console.log('#refreshDeviceId');
     const thiz = this;
     DeviceId.regen(() => {
       thiz.forceUpdate();
