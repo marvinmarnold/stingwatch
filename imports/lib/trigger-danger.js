@@ -14,7 +14,9 @@ export function triggerDanger() {
   }, triggerDuration);
 
   // Create a fake detection so something will be displayed on Danger Page
-  Meteor.call("catcher.simulate-detection", DeviceId.get(), (error, result) => {
+  // If testing in web browser, deviceId not set
+  const deviceId = DeviceId.get() || Random.id()
+  Meteor.call("catcher.simulate-detection", deviceId, (error, result) => {
     console.log('Got result from simulate-detection');
     if(error) {
       console.log("error", error);

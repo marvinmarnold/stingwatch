@@ -7,10 +7,12 @@ import TweetButton from './TweetButton.jsx';
 
 class StatusDanger extends React.Component {
   componentDidMount() {
+    // console.log('componentDidMount');
     this.props.initMap();
   }
 
   componentWillUnmount() {
+    // console.log('componentWillUnmount');
     this.props.unmountMap();
   }
 
@@ -38,21 +40,24 @@ class StatusDanger extends React.Component {
   }
 }
 
+let frameLoaded = false;
 export default createContainer(({detection}) => {
-  console.log('got more tt');
-  console.log(detection);
   let map, threatsLayer;
-  let loading = true;
+
 
   const unmountMap = () => {
+    // console.log("unmountMap");
+
     map = undefined;
     threatsLayer = undefined;
+    frameLoaded = false;
   }
 
   const initMap = () => {
-    Tracker.autorun(() => {
-      if (Mapbox.loaded()) {
-        if(!!map && !!detection) {
+    // console.log("initMap");
+    if (Mapbox.loaded()) {
+      if(!map && !!detection) {
+
           L.mapbox.accessToken = Meteor.settings.public.MAPBOX_TOKEN;
 
           map = L.mapbox.map('map', 'mapbox.streets').setView([
@@ -61,25 +66,24 @@ export default createContainer(({detection}) => {
           ], 12);
 
           threatsLayer = L.mapbox.featureLayer().addTo(map);
-          // var myLayer = L.mapbox.featureLayer(geojson, {
-          //   pointToLayer: function(feature, latlon) {
-          //     return L.circleMarker([detection.latitude, detection.longitude], {
-          //       fillColor: '#ff0000',
-          //       fillOpacity: 0.8,
-          //       stroke: false
-          //     });
-          //   }
-          // }).addTo(map);
 
           L.circleMarker([detection.latitude, detection.longitude], {
             fillColor: '#ff0000',
             fillOpacity: 0.8,
             stroke: false
           }).addTo(threatsLayer);
+
         }
       }
-    });
   };
+
+  Tracker.autorun(() => {
+    if (Mapbox.loaded()) {
+      if(!map && !!detection && frameLoaded) {
+        initMap();
+      }
+    }
+  });
 
   return {
     map: map,

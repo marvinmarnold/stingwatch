@@ -46,7 +46,7 @@ export default class GeekMode extends React.Component {
   renderDeviceIdButton() {
     return (
       <button className='m-y-2 btn btn-outline-primary btn-lg btn-block' onClick={this.refreshDeviceId.bind(this)}>
-        New Device ID<br/><small>current: { DeviceId.get() }</small>
+        New Device ID<br/><small>current: { DeviceId.get() || "Not set"}</small>
       </button>
     );
   }
