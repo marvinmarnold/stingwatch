@@ -35,7 +35,7 @@ function readValues() {
       console.log(simReading);
 
       Meteor.call('catcher.readings.insert', simReading, (error, result) => {
-        console.log(result);
+        // console.log(result);
       });
     })
   }

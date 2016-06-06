@@ -19,8 +19,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 static-html
 twbs:bootstrap
 crosswalk
-accounts-twitter
-service-configuration
 react-meteor-data
 aldeed:simple-schema
 fortawesome:fontawesome
@@ -31,3 +29,4 @@ underscore
 pauloborges:mapbox
 marvin:device-id
 marvin:imsi-catcher-catcher
+accounts-twitter

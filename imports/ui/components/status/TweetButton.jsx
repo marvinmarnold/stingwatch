@@ -3,7 +3,15 @@ import { createContainer } from 'meteor/react-meteor-data';
 
 export default class TweetButton extends React.Component {
   login() {
-    Meteor.loginWithTwitter()
+    console.log('TweetButton#login');
+    Meteor.loginWithTwitter(err => {
+      if(err) {
+        console.log("TweetButton#login.error");
+        console.log(err);
+      } else {
+        console.log("Success");
+      }
+    })
   }
 
   compose() {
