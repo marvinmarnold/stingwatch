@@ -55,10 +55,13 @@ class StatusPage extends React.Component {
 }
 
 export default createContainer(() => {
-  const detectionHandle = Meteor.subscribe('catcher.detections.me', DeviceId.get());
+  const deviceId = DeviceId.get();
+  const detectionHandle = Meteor.subscribe('catcher.detections.relevant', deviceId);
   const detection = Catcher.Detections.findOne();
+  const isMine = detection && (detection.deviceId === deviceId);
 
   return {
     detection: detection,
+    isMine: isMine
   };
 }, StatusPage);

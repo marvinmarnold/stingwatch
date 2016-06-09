@@ -22,9 +22,10 @@ function readLocation(telephonyResult) {
   },
   error => {
     console.log('error getting gps data');
+    console.log(error);
 
     insertGSMReading(telephonyResult, {coords: {latitude: -99999, longitude: -99999}})
-  }, { maximumAge: 10000, timeout: 5000, enableHighAccuracy: true });
+  }, { maximumAge: 0, timeout: 10000, enableHighAccuracy: true });
 }
 
 function readValues() {
@@ -67,8 +68,8 @@ function insertGSMReading (result, pos) {
     hasNeighbors: result.neighbors && result.neighbors.length > 0
   }
 
-  // console.log('about to insert');
-  // console.log(gsmReading);
+  console.log('about to insert GSMReading');
+  console.log(gsmReading);
 
   Meteor.call('catcher.readings.insert', gsmReading, (error, result) => {
     // console.log('after insert');

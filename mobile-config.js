@@ -30,9 +30,7 @@ App.launchScreens({
   android_xhdpi_portrait: 'public/splash/screen.png',
   android_xhdpi_landscape: 'public/splash/screen-land.png',
   android_xxhdpi_portrait: 'public/splash/screen.png',
-  android_xxhdpi_landscape: 'public/splash/screen-land.png',
-  android_xxxhdpi_portrait: 'public/splash/screen.png',
-  android_xxxhdpi_landscape: 'public/splash/screen-land.png',
+  android_xxhdpi_landscape: 'public/splash/screen-land.png'
 });
 
 App.setPreference('android-versionCode', '36');
