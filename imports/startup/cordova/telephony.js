@@ -5,6 +5,7 @@ import { Catcher } from 'meteor/marvin:imsi-catcher-catcher';
 import { DeviceId } from 'meteor/marvin:device-id';
 
 const refreshPeriod = 1000 * 15;
+let maximumAge = 60000;
 
 export function startupTelephony() {
   readValues();
@@ -15,6 +16,13 @@ export function startupTelephony() {
 }
 
 function readLocation(telephonyResult) {
+  // Different phones work better with different values, so trade off
+  if(maximumAge === 60000) {
+    maximumAge = 0;
+  } else {
+    maximumAge = 60000;
+  }
+
   navigator.geolocation.getCurrentPosition(pos => {
     // console.log('gps data received');
 
@@ -25,7 +33,7 @@ function readLocation(telephonyResult) {
     console.log(error);
 
     insertGSMReading(telephonyResult, {coords: {latitude: -99999, longitude: -99999}})
-  }, { maximumAge: 0, timeout: 10000, enableHighAccuracy: true });
+  }, { maximumAge: maximumAge, timeout: 10000, enableHighAccuracy: true });
 }
 
 function readValues() {
@@ -35,8 +43,8 @@ function readValues() {
   if(RLS.get(SETTINGS.TERMS_ACCEPTED)) {
     window.plugins.telephony.requestReadPermission( () => {
       window.plugins.telephony.getTelephonyInfo(result => {
-        // console.log('Telephony received data');
-        // console.log(result);
+        console.log('Telephony received data');
+        console.log(result);
         createNeighborReadings(result);
 
         readLocation(result);
