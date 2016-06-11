@@ -1,3 +1,5 @@
+// Primary class for collecting readings to be used in detections
+// Tries to read values from cordova-plugin-telephony every refreshPeriod
 import { Meteor } from 'meteor/meteor';
 import { RLS } from 'meteor/marvin:reactive-local-store';
 import { SETTINGS } from '../../globals.js';
@@ -22,7 +24,7 @@ function readLocation(telephonyResult) {
   } else {
     maximumAge = 60000;
   }
-
+  console.log('reading location with max age: ' + maximumAge);
   navigator.geolocation.getCurrentPosition(pos => {
     // console.log('gps data received');
 
