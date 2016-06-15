@@ -43,7 +43,15 @@ function readValues() {
 
   // Read telephony values from device through cordova-plugin-telephony
   if(RLS.get(SETTINGS.TERMS_ACCEPTED)) {
+
     window.plugins.telephony.requestReadPermission( () => {
+      // Start listener for telephony changes
+      window.plugins.telephony.listenTelephonyInfo( () => {
+        console.log("Started to listen for telephony changes");
+      });
+
+      // Read telephony values currently available
+      // Note: Seems like some values are only available on state change
       window.plugins.telephony.getTelephonyInfo(result => {
         console.log('Telephony received data');
         console.log(result);
