@@ -25,6 +25,14 @@ function readLocation(telephonyResult) {
     maximumAge = 60000;
   }
   console.log('reading location with max age: ' + maximumAge);
+  // Geolocation.latLng((lat, lng) => {
+  //   console.log('received some sort of response geolocation');
+  //   console.log('meteor ' + lat + ", " + lng);
+  // })
+  let geo = Geolocation.latLng()
+  console.log('meteor geo');
+  console.log(geo);
+  
   navigator.geolocation.getCurrentPosition(pos => {
     // console.log('gps data received');
 
